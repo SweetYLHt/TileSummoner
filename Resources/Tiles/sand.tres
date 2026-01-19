@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="TileBlockData" load_steps=2 format=3 uid="uid://sand_tile"]
+
+[ext_resource type="Script" uid="uid://b0ryvrak4e5ub" path="res://Scripts/tile/tile_block_data.gd" id="1_tile_data"]
+
+[resource]
+script = ExtResource("1_tile_data")
+tile_type = &"sand"
+display_name = "沙漠"
+category = &"basic"
+element_type = &"earth"
+texture = null
+movement_modifier = 0
+defense_bonus = 0
+attack_bonus = 0
+damage_per_second = 0
+heal_per_5sec = 0
+dodge_chance = 0.0
+special_effects = 0
+affinity_matrix = Array[int]([0, 20, -10, 10, -10, -20, 0, 0])
+remains_after_consume = false
+description = "干燥环境，火系单位强力，但削弱自然系。"

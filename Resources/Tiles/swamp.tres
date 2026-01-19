@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="TileBlockData" load_steps=2 format=3 uid="uid://swamp_tile"]
+
+[ext_resource type="Script" uid="uid://b0ryvrak4e5ub" path="res://Scripts/tile/tile_block_data.gd" id="1_tile_data"]
+
+[resource]
+script = ExtResource("1_tile_data")
+tile_type = &"swamp"
+display_name = "沼泽"
+category = &"special"
+element_type = &"nature"
+texture = null
+movement_modifier = -2
+defense_bonus = -5
+attack_bonus = -5
+damage_per_second = 1
+heal_per_5sec = 0
+dodge_chance = 0.2
+special_effects = 0
+affinity_matrix = Array[int]([0, 0, 15, -10, 0, 10, 0, 0])
+remains_after_consume = false
+description = "复杂地形，降低移动力和攻防，但提供高闪避。"

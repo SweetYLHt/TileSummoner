@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="TileBlockData" load_steps=2 format=3 uid="uid://lava_tile"]
+
+[ext_resource type="Script" uid="uid://b0ryvrak4e5ub" path="res://Scripts/tile/tile_block_data.gd" id="1_tile_data"]
+
+[resource]
+script = ExtResource("1_tile_data")
+tile_type = &"lava"
+display_name = "熔岩"
+category = &"special"
+element_type = &"fire"
+texture = null
+movement_modifier = -1
+defense_bonus = -10
+attack_bonus = 20
+damage_per_second = 3
+heal_per_5sec = 0
+dodge_chance = 0.0
+special_effects = 0
+affinity_matrix = Array[int]([0, 25, -20, -10, 10, -20, -15, 0])
+remains_after_consume = false
+description = "危险地形！每秒造成3点伤害，但火系单位大幅强化。"
