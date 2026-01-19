@@ -1,0 +1,40 @@
+{
+  "permissions": {
+    "allow": [
+      "Skill(ccjk:init-project)",
+      "Bash(dir:*)",
+      "Bash(findstr:*)",
+      "Bash(python:*)",
+      "Bash(where:*)",
+      "Bash(test:*)",
+      "Skill(superpowers:brainstorming)",
+      "Bash(ping:*)",
+      "mcp__godot-mcp__get_project_info",
+      "mcp__godot-mcp__get_godot_version",
+      "mcp__godot-mcp__create_scene",
+      "mcp__godot-mcp__run_project",
+      "mcp__godot-mcp__get_debug_output",
+      "mcp__godot-mcp__stop_project",
+      "mcp__godot-mcp__launch_editor",
+      "Bash(del:*)",
+      "Bash(cmd /c \"del \"\"H:\\\\!GameStart\\\\TileSummoner\\\\Scripts\\\\message\\\\messages\\\\card_messages.gd\"\"\")",
+      "Bash(cmd /c \"del \"\"H:\\\\!GameStart\\\\TileSummoner\\\\Scripts\\\\message\\\\messages\\\\combat_messages.gd\"\"\")",
+      "Bash(cmd /c \"del \"\"H:\\\\!GameStart\\\\TileSummoner\\\\Scripts\\\\message\\\\messages\\\\tile_messages.gd\"\"\")",
+      "Bash(cmd /c \"del \"\"H:\\\\!GameStart\\\\TileSummoner\\\\Scripts\\\\message\\\\messages\\\\unit_messages.gd\"\"\")",
+      "Bash(cmd /c \"del \"\"H:\\\\!GameStart\\\\TileSummoner\\\\Scripts\\\\message\\\\messages\\\\game_flow_messages.gd\"\"\")",
+      "Bash(cmd /c \"del \"\"H:\\\\!GameStart\\\\TileSummoner\\\\Scripts\\\\message\\\\messages\\\\resource_messages.gd\"\"\")",
+      "Bash(timeout:*)",
+      "mcp__notionApi__API-post-page",
+      "mcp__plugin_github_github__get_file_contents",
+      "Bash(uvx:*)",
+      "Bash(claude mcp add --scope user serena -- uvx --from git+https://github.com/oraios/serena serena start-mcp-server --context=claude-code --project-from-cwd)",
+      "Bash(claude mcp:*)"
+    ]
+  },
+  "enabledPlugins": {
+    "playwright@claude-plugins-official": true,
+    "superpowers@claude-plugins-official": true,
+    "planning-with-files@planning-with-files": true,
+    "superpowers@superpowers-marketplace": true
+  }
+}

@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://bliekf3v6tt4"]
+
+[ext_resource type="Texture2D" uid="uid://dyei7sf26h7jh" path="res://icon.svg" id="1_uvqnb"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Icon" type="Sprite2D" parent="Control"]
+position = Vector2(423, 192)
+texture = ExtResource("1_uvqnb")

@@ -1,0 +1,85 @@
+{
+  "timestamp": "2026-01-17T00:00:00.000Z",
+  "project_name": "TileSummoner",
+  "project_summary": "地块召唤师 - Godot 4.5 策略自走棋游戏",
+  "root_path": "H:\\!GameStart\\TileSummoner",
+  "engine": "Godot 4.5",
+  "modules": [
+    {
+      "name": "Docs",
+      "path": "H:\\!GameStart\\TileSummoner\\Docs",
+      "relative_path": "Docs/",
+      "responsibility": "游戏设计文档存放",
+      "language": "Markdown",
+      "status": "existing",
+      "entry_points": [],
+      "interfaces": [],
+      "tests": false,
+      "config_files": [],
+      "data_models": [],
+      "files": [
+        "游戏创意记录——地块召唤师.md"
+      ],
+      "coverage": 100
+    }
+  ],
+  "suggested_modules": [
+    {
+      "name": "scenes",
+      "responsibility": "Godot 场景文件",
+      "status": "to_create",
+      "priority": "high"
+    },
+    {
+      "name": "scripts",
+      "responsibility": "GDScript 脚本逻辑",
+      "status": "to_create",
+      "priority": "high"
+    },
+    {
+      "name": "resources",
+      "responsibility":资源定义文件",
+      "status": "to_create",
+      "priority": "high"
+    },
+    {
+      "name": "assets",
+      "responsibility": "美术、音效资源",
+      "status": "to_create",
+      "priority": "medium"
+    }
+  ],
+  "statistics": {
+    "total_files_estimated": 6,
+    "scanned_files": 6,
+    "coverage_percentage": 100,
+    "ignored_files": 80,
+    "ignored_directories": [".godot"],
+    "languages": {
+      "Markdown": 1,
+      "INI": 3,
+      "SVG": 1,
+      "JSON": 1
+    },
+    "godot_files": {
+      "gd_scripts": 0,
+      "tscn_scenes": 0,
+      "tres_resources": 0
+    }
+  },
+  "gaps": {
+    "missing_scenes": "无任何 .tscn 场景文件",
+    "missing_scripts": "无任何 .gd 脚本文件",
+    "missing_resources": "无任何 .tres 资源文件",
+    "missing_ui_design": "UI/交互逻辑待定",
+    "missing_balancing": "数值表、消耗曲线待定"
+  },
+  "next_steps": [
+    "创建主场景 scenes/main_game.tscn",
+    "创建地图系统 scenes/map.tscn",
+    "实现连通性算法脚本",
+    "定义地形类型数据 resources/terrain_types.tres",
+    "设计 UI 交互方案"
+  ],
+  "truncated": false
+}

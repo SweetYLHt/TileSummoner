@@ -1,0 +1,191 @@
+[gd_scene load_steps=4 format=3 uid="uid://bioew27bykxrg"]
+
+[ext_resource type="Script" uid="uid://yektr8nqiryl" path="res://Scripts/visual_test/sprite_controller.gd" id="1_0x2p1"]
+[ext_resource type="Script" uid="uid://3rgkk40oow02" path="res://Scripts/visual_test/visual_test_ui.gd" id="2_ab4cd"]
+[ext_resource type="Texture2D" uid="uid://dyei7sf26h7jh" path="res://icon.svg" id="3_icon"]
+
+[node name="MessageVisualTest" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_ab4cd")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitlePanel" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/TitlePanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/TitlePanel/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = " 消息事件系统可视化测试"
+vertical_alignment = 1
+
+[node name="CloseButton" type="Button" parent="VBoxContainer/TitlePanel/HBoxContainer"]
+custom_minimum_size = Vector2(40, 0)
+layout_mode = 2
+text = "×"
+
+[node name="MainArea" type="HSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftPanel" type="Panel" parent="VBoxContainer/MainArea"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="LeftScroll" type="ScrollContainer" parent="VBoxContainer/MainArea/LeftPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftVBox" type="VBoxContainer" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ScaleCategory" type="Label" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox"]
+layout_mode = 2
+text = "─ 缩放控制 ─"
+horizontal_alignment = 1
+
+[node name="ScaleHBox" type="HBoxContainer" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="ZoomInButton" type="Button" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox/ScaleHBox"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "放大 (+)"
+
+[node name="ZoomOutButton" type="Button" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox/ScaleHBox"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "缩小 (-)"
+
+[node name="ResetButton" type="Button" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox/ScaleHBox"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "重置 (R)"
+
+[node name="AnimationCategory" type="Label" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox"]
+layout_mode = 2
+text = "─ 动画控制 ─"
+horizontal_alignment = 1
+
+[node name="AnimationHBox" type="HBoxContainer" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="RotateButton" type="Button" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox/AnimationHBox"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "旋转"
+
+[node name="JumpButton" type="Button" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox/AnimationHBox"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "跳跃"
+
+[node name="BlinkButton" type="Button" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox/AnimationHBox"]
+custom_minimum_size = Vector2(0, 35)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "闪烁"
+
+[node name="ColorCategory" type="Label" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox"]
+layout_mode = 2
+text = "─ 颜色控制 ─"
+horizontal_alignment = 1
+
+[node name="ColorHBox" type="HBoxContainer" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox"]
+layout_mode = 2
+theme_override_constants/separation = 5
+
+[node name="RedButton" type="Button" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox/ColorHBox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "红"
+
+[node name="GreenButton" type="Button" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox/ColorHBox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "绿"
+
+[node name="BlueButton" type="Button" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox/ColorHBox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "蓝"
+
+[node name="WhiteButton" type="Button" parent="VBoxContainer/MainArea/LeftPanel/LeftScroll/LeftVBox/ColorHBox"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+text = "白"
+
+[node name="RightPanel" type="Panel" parent="VBoxContainer/MainArea"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightVBox" type="VBoxContainer" parent="VBoxContainer/MainArea/RightPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="StatusLabel" type="Label" parent="VBoxContainer/MainArea/RightPanel/RightVBox"]
+layout_mode = 2
+text = "当前状态: 正常
+缩放: 1.0x
+旋转: 0°
+颜色: 白色"
+
+[node name="EventLogLabel" type="Label" parent="VBoxContainer/MainArea/RightPanel/RightVBox"]
+layout_mode = 2
+text = "事件日志:"
+
+[node name="EventLog" type="RichTextLabel" parent="VBoxContainer/MainArea/RightPanel/RightVBox"]
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = true
+text = "[color=gray]等待事件...[/color]
+"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="SpriteController" type="Node2D" parent="CanvasLayer" node_paths=PackedStringArray("event_log_label")]
+position = Vector2(640, 360)
+script = ExtResource("1_0x2p1")
+event_log_label = NodePath("../../VBoxContainer/MainArea/RightPanel/RightVBox/EventLog")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/SpriteController"]
+texture = ExtResource("3_icon")
