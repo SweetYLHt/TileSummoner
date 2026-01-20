@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TileSummoner"
-run/main_scene="res://scenes/visual_test/message_visual_test.tscn"
+run/main_scene="res://Scenes/test_tile_system.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 config/screen_orientation=0
@@ -20,7 +20,8 @@ run/window_initial_size=Vector2(1280, 720)
 
 [autoload]
 
-MessageServer="*res://scripts/message/message_server.gd"
+MessageServer="*res://Scripts/message/message_server.gd"
+tileDatabase="*res://Scripts/tile/tile_database.gd"
 
 [display]
 

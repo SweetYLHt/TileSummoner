@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://buu44mn05bs6i"]
+
+[ext_resource type="Script" uid="uid://dtlqvs8wuyp8x" path="res://Scripts/tile/grid_manager.gd" id="2_grid"]
+
+[node name="BattleMap" type="Node2D"]
+
+[node name="Tiles" type="Node2D" parent="."]
+
+[node name="GridManager" type="Node2D" parent="Tiles"]
+script = ExtResource("2_grid")

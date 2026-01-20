@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TileConfig" load_steps=2 format=3 uid="uid://player_default_config"]
+
+[ext_resource type="Script" path="res://Scripts/tile/tile_config.gd" id="1_config"]
+
+[resource]
+script = ExtResource("1_config")
+config_name = &"player_default"
+config_type = &"player"
+tiles = Array[StringName]([
+	&"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland",
+	&"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland",
+	&"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland",
+	&"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland"
+])  # 28格，第5-8行
+
+

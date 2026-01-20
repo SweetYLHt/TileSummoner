@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://gok6fnhe2njq"]
+
+[ext_resource type="PackedScene" uid="uid://buu44mn05bs6i" path="res://Scenes/battle_map.tscn" id="1_battle_map"]
+[ext_resource type="Script" uid="uid://db0wcx38tr3hx" path="res://Scripts/test/test_tile_system.gd" id="2_test"]
+[ext_resource type="Script" uid="uid://dtw7ev06076q1" path="res://Scripts/tile/battle_map_generator.gd" id="3_k7shi"]
+
+[node name="TestTileSystem" type="Node"]
+script = ExtResource("2_test")
+
+[node name="BattleMapGenerator" type="Node" parent="."]
+script = ExtResource("3_k7shi")
+
+[node name="BattleMap" parent="." instance=ExtResource("1_battle_map")]

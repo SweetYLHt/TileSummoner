@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="TileConfig" load_steps=2 format=3 uid="uid://enemy_medium_config"]
+
+[ext_resource type="Script" path="res://Scripts/tile/tile_config.gd" id="1_config"]
+
+[resource]
+script = ExtResource("1_config")
+config_name = &"enemy_medium"
+config_type = &"enemy"
+tiles = Array[StringName]([
+	&"grassland", &"water",    &"grassland", &"rock",     &"grassland", &"water",    &"grassland",
+	&"grassland", &"sand",     &"grassland", &"grassland", &"grassland", &"sand",     &"grassland",
+	&"water",    &"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"water",
+	&"grassland", &"grassland", &"forest",   &"grassland", &"forest",   &"grassland", &"grassland",
+	&"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland"
+])  # 35格，第0-4行
+

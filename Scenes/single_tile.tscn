@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwewugq5v4t7f"]
+
+[ext_resource type="Texture2D" uid="uid://c3sa5psp3mvso" path="res://Assets/Sprites/Tiles/Tile_Grassland_01.png" id="1_y7njg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_46kmr"]
+size = Vector2(250, 204)
+
+[node name="SingleTile" type="Node2D"]
+
+[node name="TileGrassland01" type="Sprite2D" parent="."]
+position = Vector2(125, 125)
+texture = ExtResource("1_y7njg")
+
+[node name="FloorArea2D" type="Area2D" parent="TileGrassland01"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileGrassland01/FloorArea2D"]
+position = Vector2(0.5, -22.5)
+shape = SubResource("RectangleShape2D_46kmr")
