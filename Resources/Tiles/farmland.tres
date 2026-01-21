@@ -1,21 +1,12 @@
-[gd_resource type="Resource" script_class="TileBlockData" load_steps=2 format=3 uid="uid://farmland_tile"]
+[gd_resource type="Resource" script_class="TileBlockData" load_steps=2 format=3 uid="uid://oxyjn0iy73e1"]
 
-[ext_resource type="Script" uid="uid://b0ryvrak4e5ub" path="res://Scripts/tile/tile_block_data.gd" id="1_tile_data"]
+[ext_resource type="Script" uid="uid://bdgcsec4uc0h8" path="res://Scripts/tile/tile_block_data.gd" id="1_tile_data"]
 
 [resource]
 script = ExtResource("1_tile_data")
-tile_type = &"farmland"
+tile_type = 5
 display_name = "农田"
-category = &"basic"
-element_type = &"nature"
-texture = null
-movement_modifier = 0
-defense_bonus = 0
-attack_bonus = 0
-damage_per_second = 0
+element_type = 5
 heal_per_5sec = 10
-dodge_chance = 0.0
-special_effects = 0
 affinity_matrix = Array[int]([0, -10, 10, 0, 0, 15, 0, 0])
-remains_after_consume = false
 description = "强力恢复地形，每5秒恢复10点生命值。"

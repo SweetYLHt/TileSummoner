@@ -28,7 +28,8 @@
       "mcp__plugin_github_github__get_file_contents",
       "Bash(uvx:*)",
       "Bash(claude mcp add --scope user serena -- uvx --from git+https://github.com/oraios/serena serena start-mcp-server --context=claude-code --project-from-cwd)",
-      "Bash(claude mcp:*)"
+      "Bash(claude mcp:*)",
+      "mcp__godot-mcp__get_uid"
     ]
   },
   "enabledPlugins": {

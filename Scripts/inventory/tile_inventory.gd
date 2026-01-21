@@ -1,19 +1,19 @@
 extends Node
 class_name TileInventory
 
-## 库存数据：Dictionary[StringName, int]
+## 库存数据：Dictionary[TileType, int]
 var _inventory: Dictionary = {}
 
 
 ## 添加地块
-func add_tile(tile_type: StringName, amount: int = 1) -> void:
+func add_tile(tile_type: TileConstants.TileType, amount: int = 1) -> void:
 	if not _inventory.has(tile_type):
 		_inventory[tile_type] = 0
 	_inventory[tile_type] += amount
 
 
 ## 消耗地块
-func consume_tile(tile_type: StringName, amount: int = 1) -> bool:
+func consume_tile(tile_type: TileConstants.TileType, amount: int = 1) -> bool:
 	if not _inventory.has(tile_type) or _inventory[tile_type] < amount:
 		return false
 	_inventory[tile_type] -= amount
@@ -23,27 +23,30 @@ func consume_tile(tile_type: StringName, amount: int = 1) -> bool:
 
 
 ## 获取数量
-func get_count(tile_type: StringName) -> int:
+func get_count(tile_type: TileConstants.TileType) -> int:
 	return _inventory.get(tile_type, 0)
 
 
 ## 获取所有类型
-func get_all_types() -> Array[StringName]:
-	return _inventory.keys()
+func get_all_types() -> Array[TileConstants.TileType]:
+	var result: Array[TileConstants.TileType] = []
+	for key in _inventory.keys():
+		result.append(key as TileConstants.TileType)
+	return result
 
 
 ## 初始化默认库存
 func initialize_default_inventory() -> void:
 	_inventory.clear()
-	add_tile(&"grassland", 20)
-	add_tile(&"water", 10)
-	add_tile(&"sand", 10)
-	add_tile(&"rock", 5)
-	add_tile(&"forest", 5)
-	add_tile(&"farmland", 5)
-	add_tile(&"lava", 2)
-	add_tile(&"swamp", 2)
-	add_tile(&"ice", 2)
+	add_tile(TileConstants.TileType.GRASSLAND, 20)
+	add_tile(TileConstants.TileType.WATER, 10)
+	add_tile(TileConstants.TileType.SAND, 10)
+	add_tile(TileConstants.TileType.ROCK, 5)
+	add_tile(TileConstants.TileType.FOREST, 5)
+	add_tile(TileConstants.TileType.FARMLAND, 5)
+	add_tile(TileConstants.TileType.LAVA, 2)
+	add_tile(TileConstants.TileType.SWAMP, 2)
+	add_tile(TileConstants.TileType.ICE, 2)
 
 
 ## 清空库存

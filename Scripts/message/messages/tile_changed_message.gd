@@ -8,10 +8,10 @@ class_name TileChangedMessage
 var cell: Vector2i = Vector2i.ZERO
 
 ## 原地形类型
-var old_type: StringName = &""
+var old_type: TileConstants.TileType = TileConstants.TileType.GRASSLAND
 
 ## 新地形类型
-var new_type: StringName = &""
+var new_type: TileConstants.TileType = TileConstants.TileType.GRASSLAND
 
 
 func _init() -> void:

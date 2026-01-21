@@ -8,7 +8,7 @@ class_name TileConsumedMessage
 var cell: Vector2i = Vector2i.ZERO
 
 ## 消耗前的地形类型
-var tile_type: StringName = &""
+var tile_type: TileConstants.TileType = TileConstants.TileType.GRASSLAND
 
 ## 召唤的单位 ID
 var summoned_unit_id: StringName = &""

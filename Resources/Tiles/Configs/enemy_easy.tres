@@ -1,16 +1,9 @@
-[gd_resource type="Resource" script_class="TileConfig" load_steps=2 format=3 uid="uid://enemy_easy_config"]
+[gd_resource type="Resource" script_class="TileConfig" load_steps=2 format=3 uid="uid://njd0tr1jlpto"]
 
-[ext_resource type="Script" path="res://Scripts/tile/tile_config.gd" id="1_config"]
+[ext_resource type="Script" uid="uid://db0fd6nv56baw" path="res://Scripts/tile/tile_config.gd" id="1_config"]
 
 [resource]
 script = ExtResource("1_config")
-config_name = &"enemy_easy"
-config_type = &"enemy"
-tiles = Array[StringName]([
-	&"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland",
-	&"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland",
-	&"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland",
-	&"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland",
-	&"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland", &"grassland"
-])  # 35格，第0-4行
-
+config_name = "enemy_easy"
+config_type = 1
+enemy_tiles = Array[int]([0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 0, 3, 0, 3, 0, 0, 3, 0, 3, 0, 0, 3, 0, 0, 0, 3, 0, 0, 3, 3, 0, 3, 0, 0, 0])

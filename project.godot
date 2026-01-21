@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="TileSummoner"
-run/main_scene="res://Scenes/test_tile_system.tscn"
+run/main_scene="res://Scenes/main_menu.tscn"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 config/screen_orientation=0
@@ -22,6 +22,7 @@ run/window_initial_size=Vector2(1280, 720)
 
 MessageServer="*res://Scripts/message/message_server.gd"
 tileDatabase="*res://Scripts/tile/tile_database.gd"
+TileConstants="*res://Scripts/tile/tile_constants.gd"
 
 [display]
 

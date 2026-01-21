@@ -1,0 +1,39 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/ui/tile_editor/tile_palette_item.gd" id="1_item"]
+
+[node name="TilePaletteItem" type="Button"]
+custom_minimum_size = Vector2(200, 60)
+offset_right = 200.0
+offset_bottom = 60.0
+script = ExtResource("1_item")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 4.0
+offset_right = -8.0
+offset_bottom = -4.0
+theme_override_constants/separation = 10
+
+[node name="Icon" type="TextureRect" parent="HBox"]
+custom_minimum_size = Vector2(52, 52)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="NameLabel" type="Label" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "地形名称"
+vertical_alignment = 1
+
+[node name="CountLabel" type="Label" parent="HBox"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "x0"
+horizontal_alignment = 2
+vertical_alignment = 1

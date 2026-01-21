@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3]
+
+[ext_resource type="Script" path="res://Scripts/scene/battle_scene_controller.gd" id="1_battle_ctrl"]
+[ext_resource type="Script" path="res://Scripts/tile/battle_map_generator.gd" id="2_generator"]
+[ext_resource type="PackedScene" path="res://Scenes/battle_map.tscn" id="3_battle_map"]
+
+[node name="BattleScene" type="Node"]
+script = ExtResource("1_battle_ctrl")
+
+[node name="BattleMapGenerator" type="Node" parent="."]
+script = ExtResource("2_generator")
+
+[node name="BattleMap" parent="." instance=ExtResource("3_battle_map")]
+
+[node name="UI" type="CanvasLayer" parent="."]
+
+[node name="TopBar" type="HBoxContainer" parent="UI"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = 60.0
+grow_horizontal = 2
+
+[node name="BackButton" type="Button" parent="UI/TopBar"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+text = "返回编辑"
+
+[node name="Spacer" type="Control" parent="UI/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="InfoLabel" type="Label" parent="UI/TopBar"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "战斗进行中..."
+vertical_alignment = 1

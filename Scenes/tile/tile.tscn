@@ -1,15 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://tile_scene"]
+[gd_scene load_steps=2 format=3 uid="uid://dvljxhbt2ldfd"]
 
-[ext_resource type="Script" path="res://Scripts/tile/tile.gd" id="1_tile"]
+[ext_resource type="Script" uid="uid://b51noutanucy8" path="res://Scripts/tile/tile.gd" id="1_tile_script"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_1"]
-size = Vector2(250, 204)
+[node name="Tile" type="Control"]
+custom_minimum_size = Vector2(67, 54)
+pivot_offset = Vector2(33.5, 27)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 67.0
+offset_bottom = 54.0
+mouse_filter = 2
+script = ExtResource("1_tile_script")
 
-[node name="Tile" type="Sprite2D" groups=["Tiles"]]
-script = ExtResource("1_tile")
-
-[node name="FloorArea2D" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="FloorArea2D"]
-position = Vector2(0, -23)
-shape = SubResource("RectangleShape2D_1")
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+expand_mode = 1
+stretch_mode = 5

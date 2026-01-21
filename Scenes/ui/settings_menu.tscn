@@ -1,0 +1,193 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://Scripts/ui/settings_menu.gd" id="1_settings"]
+
+[node name="SettingsMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_settings")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.1, 0.12, 0.15, 1)
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -300.0
+offset_top = 80.0
+offset_right = 300.0
+offset_bottom = 600.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 30
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+
+[node name="TitleLabel" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 32
+text = "设置"
+horizontal_alignment = 1
+
+[node name="AudioSection" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SectionLabel" type="Label" parent="Panel/VBoxContainer/AudioSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+text = "音频"
+
+[node name="MasterVolumeBox" type="HBoxContainer" parent="Panel/VBoxContainer/AudioSection"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/AudioSection/MasterVolumeBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "主音量"
+
+[node name="HSlider" type="HSlider" parent="Panel/VBoxContainer/AudioSection/MasterVolumeBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.8
+
+[node name="ValueLabel" type="Label" parent="Panel/VBoxContainer/AudioSection/MasterVolumeBox"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "80%"
+
+[node name="MusicVolumeBox" type="HBoxContainer" parent="Panel/VBoxContainer/AudioSection"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/AudioSection/MusicVolumeBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "音乐"
+
+[node name="HSlider" type="HSlider" parent="Panel/VBoxContainer/AudioSection/MusicVolumeBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.6
+
+[node name="ValueLabel" type="Label" parent="Panel/VBoxContainer/AudioSection/MusicVolumeBox"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "60%"
+
+[node name="SfxVolumeBox" type="HBoxContainer" parent="Panel/VBoxContainer/AudioSection"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/AudioSection/SfxVolumeBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "音效"
+
+[node name="HSlider" type="HSlider" parent="Panel/VBoxContainer/AudioSection/SfxVolumeBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.7
+
+[node name="ValueLabel" type="Label" parent="Panel/VBoxContainer/AudioSection/SfxVolumeBox"]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "70%"
+
+[node name="DisplaySection" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SectionLabel" type="Label" parent="Panel/VBoxContainer/DisplaySection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+text = "显示"
+
+[node name="FullscreenBox" type="HBoxContainer" parent="Panel/VBoxContainer/DisplaySection"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/DisplaySection/FullscreenBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "全屏模式"
+
+[node name="CheckBox" type="CheckBox" parent="Panel/VBoxContainer/DisplaySection/FullscreenBox"]
+layout_mode = 2
+
+[node name="VSyncBox" type="HBoxContainer" parent="Panel/VBoxContainer/DisplaySection"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/DisplaySection/VSyncBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "垂直同步"
+
+[node name="CheckBox" type="CheckBox" parent="Panel/VBoxContainer/DisplaySection/VSyncBox"]
+layout_mode = 2
+button_pressed = true
+
+[node name="LanguageSection" type="VBoxContainer" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="SectionLabel" type="Label" parent="Panel/VBoxContainer/LanguageSection"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+theme_override_colors/font_color = Color(0.8, 0.8, 0.8, 1)
+text = "语言"
+
+[node name="LanguageBox" type="HBoxContainer" parent="Panel/VBoxContainer/LanguageSection"]
+layout_mode = 2
+theme_override_constants/separation = 15
+
+[node name="Label" type="Label" parent="Panel/VBoxContainer/LanguageSection/LanguageBox"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "语言"
+
+[node name="OptionButton" type="OptionButton" parent="Panel/VBoxContainer/LanguageSection/LanguageBox"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="BackButton" type="Button" parent="Panel/VBoxContainer"]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "返回"

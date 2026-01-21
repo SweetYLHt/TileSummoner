@@ -1,0 +1,153 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgedgdb28a560"]
+
+[ext_resource type="Script" uid="uid://74rlgl60lr7e" path="res://Scripts/ui/tile_editor/tile_editor_ui.gd" id="1_editor_ui"]
+[ext_resource type="Script" uid="uid://cc118jtenukyd" path="res://Scripts/ui/tile_editor/tile_editor_controller.gd" id="2_controller"]
+[ext_resource type="Script" uid="uid://dtw7ev06076q1" path="res://Scripts/tile/battle_map_generator.gd" id="3_generator"]
+[ext_resource type="Script" uid="uid://dtlqvs8wuyp8x" path="res://Scripts/tile/grid_manager.gd" id="4_grid"]
+[ext_resource type="Script" uid="uid://dja2shpvm386n" path="res://Scripts/inventory/tile_inventory.gd" id="5_inventory"]
+
+[node name="TileEditor" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_editor_ui")
+
+[node name="TileEditorController" type="Node" parent="."]
+script = ExtResource("2_controller")
+
+[node name="BattleMapGenerator" type="Node" parent="TileEditorController"]
+script = ExtResource("3_generator")
+
+[node name="TileInventory" type="Node" parent="TileEditorController"]
+script = ExtResource("5_inventory")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12, 0.14, 0.18, 1)
+
+[node name="TopBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = -10.0
+offset_bottom = 55.0
+grow_horizontal = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 20
+text = "Tile Summoner - 地形配置"
+vertical_alignment = 1
+
+[node name="DifficultyLabel" type="Label" parent="TopBar"]
+layout_mode = 2
+text = "难度:"
+vertical_alignment = 1
+
+[node name="DifficultyOption" type="OptionButton" parent="TopBar"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+
+[node name="StartBattleButton" type="Button" parent="TopBar"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "开始战斗"
+
+[node name="BackButton" type="Button" parent="TopBar"]
+custom_minimum_size = Vector2(80, 40)
+layout_mode = 2
+text = "返回"
+
+[node name="MainHSplit" type="HSplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 65.0
+offset_right = -10.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+split_offset = 250
+
+[node name="LeftPanel" type="VBoxContainer" parent="MainHSplit"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_constants/separation = 10
+
+[node name="PanelTitle" type="Label" parent="MainHSplit/LeftPanel"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 18
+text = "地形选择"
+horizontal_alignment = 1
+
+[node name="Scroll" type="ScrollContainer" parent="MainHSplit/LeftPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+horizontal_scroll_mode = 0
+
+[node name="TileList" type="VBoxContainer" parent="MainHSplit/LeftPanel/Scroll"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 5
+
+[node name="ResetButton" type="Button" parent="MainHSplit/LeftPanel"]
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+text = "重置配置"
+
+[node name="RightPanel" type="VBoxContainer" parent="MainHSplit"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 10
+
+[node name="InfoPanel" type="HBoxContainer" parent="MainHSplit/RightPanel"]
+layout_mode = 2
+theme_override_constants/separation = 30
+
+[node name="SelectedLabel" type="Label" parent="MainHSplit/RightPanel/InfoPanel"]
+layout_mode = 2
+text = "当前选中: 无"
+
+[node name="PlacedLabel" type="Label" parent="MainHSplit/RightPanel/InfoPanel"]
+layout_mode = 2
+text = "已编辑: 0/28 格"
+
+[node name="GridContainer" type="Node2D" parent="MainHSplit/RightPanel"]
+position = Vector2(0, 25)
+
+[node name="GridManager" type="Node2D" parent="MainHSplit/RightPanel/GridContainer"]
+script = ExtResource("4_grid")
+
+[node name="StatusBar" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = -40.0
+offset_right = -10.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="StatusLabel" type="Label" parent="StatusBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "准备就绪 | 敌方难度: 简单 | 可用地块: 61"
+vertical_alignment = 1

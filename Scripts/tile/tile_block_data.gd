@@ -1,17 +1,20 @@
 extends Resource
 class_name TileBlockData
 
-## 地形类型ID（唯一标识符）
-@export var tile_type: StringName = &""
+## 地形类型（枚举值，.tres 中存储为整数）
+## 0=GRASSLAND, 1=WATER, 2=SAND, 3=ROCK, 4=FOREST, 5=FARMLAND, 6=LAVA, 7=SWAMP, 8=ICE
+@export var tile_type: TileConstants.TileType = TileConstants.TileType.GRASSLAND
 
 ## 显示名称（中文）
 @export var display_name: String = ""
 
-## 地形分类（基础/进阶/特殊）
-@export var category: StringName = &"" # &"basic", &"advanced", &"special"
+## 地形分类（枚举值，.tres 中存储为整数）
+## 0=BASIC, 1=ADVANCED, 2=SPECIAL
+@export var category: TileConstants.TileCategory = TileConstants.TileCategory.BASIC
 
-## 元素词条类型
-@export var element_type: StringName = &"" # &"none", &"fire", &"water", &"earth", &"air", &"nature", &"ice"
+## 元素词条类型（枚举值，.tres 中存储为整数）
+## 0=NONE, 1=FIRE, 2=WATER, 3=EARTH, 4=AIR, 5=NATURE, 6=ICE
+@export var element_type: TileConstants.ElementType = TileConstants.ElementType.NONE
 
 ## 地形贴图
 @export var texture: Texture2D
@@ -51,3 +54,23 @@ class_name TileBlockData
 
 ## 地形描述
 @export_multiline var description: String = ""
+
+
+## ============================================================================
+## 动画参数
+## ============================================================================
+
+## 切换动画：缩小持续时间（秒）
+@export var switch_scale_duration: float = 0.15
+
+## 切换动画：放大持续时间（秒）
+@export var switch_scale_out_duration: float = 0.2
+
+## 切换动画：旋转持续时间（秒）
+@export var switch_rotation_duration: float = 0.35
+
+## 入场动画：下落持续时间（秒）
+@export var spawn_duration: float = 0.5
+
+## 入场动画：下落距离（像素）
+@export var spawn_fall_distance: float = 500.0
