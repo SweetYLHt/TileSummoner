@@ -23,8 +23,13 @@ run/window_initial_size=Vector2(1280, 720)
 MessageServer="*res://Scripts/message/message_server.gd"
 tileDatabase="*res://Scripts/tile/tile_database.gd"
 TileConstants="*res://Scripts/tile/tile_constants.gd"
+tileInventory="*res://Scripts/inventory/tile_inventory.gd"
 
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/gdUnit4/plugin.cfg")

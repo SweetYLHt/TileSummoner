@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://terrain_grid_slot"]
+
+[ext_resource type="Script" path="res://Scripts/ui/terrain_config/terrain_grid_slot.gd" id="slot_script"]
+
+[node name="TerrainGridSlot" type="Panel"]
+custom_minimum_size = Vector2(80, 80)
+theme_override_constants/outline_size = 0
+script = ExtResource("slot_script")
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Icon" type="TextureRect" parent="CenterContainer"]
+layout_mode = 2
+custom_minimum_size = Vector2(60, 60)
+expand_mode = 1
+stretch_mode = 5

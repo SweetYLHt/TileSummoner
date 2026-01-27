@@ -16,8 +16,17 @@ class_name TileBlockData
 ## 0=NONE, 1=FIRE, 2=WATER, 3=EARTH, 4=AIR, 5=NATURE, 6=ICE
 @export var element_type: TileConstants.ElementType = TileConstants.ElementType.NONE
 
-## 地形贴图
+## 地形贴图（已弃用，保留用于兼容）
 @export var texture: Texture2D
+
+## 图标路径（SVG）
+@export var icon_path: String = ""
+
+## 地形颜色配置
+@export var main_color: Color = Color.WHITE
+@export var border_color: Color = Color.WHITE
+@export var accent_color: Color = Color.WHITE
+@export var hover_color: Color = Color.WHITE
 
 ## 移动力修正（正值加成，负值惩罚）
 @export var movement_modifier: int = 0

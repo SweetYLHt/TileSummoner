@@ -18,7 +18,7 @@ func _connect_signals() -> void:
 
 ## 开始游戏按钮
 func _on_start_pressed() -> void:
-	SceneManager.transition_to_tile_editor()
+	SceneManager.transition_to_terrain_config()
 
 
 ## 设置按钮

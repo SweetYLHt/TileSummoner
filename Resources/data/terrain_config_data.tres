@@ -1,0 +1,60 @@
+[gd_resource type="Resource" script_class="TerrainConfigData" load_steps=12 format=3 uid="uid://im1x7wsebqrf"]
+
+[ext_resource type="Script" uid="uid://b2f66hpn6plhk" path="res://Scripts/ui/terrain_config/terrain_config_data.gd" id="DataScript"]
+[ext_resource type="Script" uid="uid://c3r5jgavq1ocf" path="res://Scripts/ui/terrain_config/terrain_entry_resource.gd" id="EntryScript"]
+
+[sub_resource type="Resource" id="TerrainEntry_0"]
+script = ExtResource("EntryScript")
+available_count = 10
+
+[sub_resource type="Resource" id="TerrainEntry_1"]
+script = ExtResource("EntryScript")
+tile_type = 1
+available_count = 10
+sort_order = 1
+
+[sub_resource type="Resource" id="TerrainEntry_2"]
+script = ExtResource("EntryScript")
+tile_type = 2
+available_count = 10
+sort_order = 2
+
+[sub_resource type="Resource" id="TerrainEntry_3"]
+script = ExtResource("EntryScript")
+tile_type = 3
+available_count = 10
+sort_order = 3
+
+[sub_resource type="Resource" id="TerrainEntry_4"]
+script = ExtResource("EntryScript")
+tile_type = 4
+available_count = 10
+sort_order = 4
+
+[sub_resource type="Resource" id="TerrainEntry_5"]
+script = ExtResource("EntryScript")
+tile_type = 5
+available_count = 10
+sort_order = 5
+
+[sub_resource type="Resource" id="TerrainEntry_6"]
+script = ExtResource("EntryScript")
+tile_type = 6
+available_count = 10
+sort_order = 6
+
+[sub_resource type="Resource" id="TerrainEntry_7"]
+script = ExtResource("EntryScript")
+tile_type = 7
+available_count = 10
+sort_order = 7
+
+[sub_resource type="Resource" id="TerrainEntry_8"]
+script = ExtResource("EntryScript")
+tile_type = 8
+available_count = 10
+sort_order = 8
+
+[resource]
+script = ExtResource("DataScript")
+terrain_entries = Array[ExtResource("EntryScript")]([SubResource("TerrainEntry_0"), SubResource("TerrainEntry_1"), SubResource("TerrainEntry_2"), SubResource("TerrainEntry_3"), SubResource("TerrainEntry_4"), SubResource("TerrainEntry_5"), SubResource("TerrainEntry_6"), SubResource("TerrainEntry_7"), SubResource("TerrainEntry_8")])

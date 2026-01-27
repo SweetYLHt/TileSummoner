@@ -14,7 +14,8 @@ signal tile_unhovered(tile: Tile)
 signal drop_received(tile: Tile, data: Dictionary)
 
 ## 子节点引用
-@onready var _texture_rect: TextureRect = $TextureRect
+@onready var _icon_layer: TextureRect = $IconLayer
+@onready var _border_layer: Panel = $BorderLayer
 
 ## 地块数据
 var _data
@@ -43,12 +44,38 @@ func _ready() -> void:
 	mouse_entered.connect(_on_mouse_entered)
 	mouse_exited.connect(_on_mouse_exited)
 
+	# 初始化边框样式
+	_init_border_style()
+
+
+## 初始化边框样式
+func _init_border_style() -> void:
+	if not _border_layer:
+		return
+
+	var style_box := StyleBoxFlat.new()
+	style_box.bg_color = Color.TRANSPARENT
+	style_box.border_width_left = 2
+	style_box.border_width_top = 2
+	style_box.border_width_right = 2
+	style_box.border_width_bottom = 2
+	style_box.border_color = Color(0.3, 0.3, 0.3, 0.8)  # 默认深灰色边框
+
+	_border_layer.add_theme_stylebox_override("panel", style_box)
+
 
 ## 设置地块数据
 func set_data(data) -> void:
 	_data = data
-	if _texture_rect and data:
-		_texture_rect.texture = data.texture
+	if _icon_layer and data:
+		# 从数据文件读取图标路径
+		if data.has_method("get") and data.get("icon_path"):
+			var icon_path: String = data.get("icon_path")
+			if not icon_path.is_empty():
+				_icon_layer.texture = load(icon_path)
+
+		# 应用地形颜色
+		_apply_terrain_colors(data)
 
 
 ## 获取地块数据
@@ -58,7 +85,27 @@ func get_data():
 
 ## 获取纹理（用于兼容）
 func get_texture():
-	return _texture_rect.texture if _texture_rect else null
+	return _icon_layer.texture if _icon_layer else null
+
+
+## 应用地形颜色配置
+func _apply_terrain_colors(data) -> void:
+	if not data:
+		return
+
+	# 从数据文件读取颜色配置（TileBlockData 属性已有默认值）
+	var main_color: Color = data.main_color
+	var border_color: Color = data.border_color
+
+	# 应用图标颜色（纯色覆盖）
+	if _icon_layer:
+		_icon_layer.modulate = main_color
+
+	# 应用边框颜色
+	if _border_layer:
+		var style_box := _border_layer.get_theme_stylebox("panel")
+		if style_box is StyleBoxFlat:
+			style_box.border_color = border_color
 
 
 ## 播放切换动画（编辑界面）
@@ -103,16 +150,59 @@ func play_spawn_animation(delay: float) -> void:
 		.set_trans(Tween.TRANS_BOUNCE)
 
 
-## 高亮选中
+## 高亮选中（使用地形强调色）
 func highlight() -> void:
 	is_selected = true
-	modulate = Color.YELLOW
+	_update_visual_state()
 
 
 ## 取消高亮
 func unhighlight() -> void:
 	is_selected = false
-	modulate = Color.WHITE
+	_update_visual_state()
+
+
+## 更新视觉状态（根据选中、悬停、拖拽高亮状态）
+func _update_visual_state() -> void:
+	if not _data:
+		return
+
+	# 从数据文件读取颜色配置（TileBlockData 属性已有默认值）
+	var main_color: Color = _data.main_color
+	var border_color: Color = _data.border_color
+	var accent_color: Color = _data.accent_color
+	var hover_color: Color = _data.hover_color
+
+	# 确定当前应该使用的颜色
+	var final_border_color: Color
+	var final_icon_color: Color
+
+	if is_selected:
+		# 选中状态：使用强调色
+		final_border_color = accent_color
+		final_icon_color = accent_color
+	elif is_drag_highlighted:
+		# 拖拽高亮状态：使用淡黄色
+		final_border_color = Color(1.2, 1.2, 0.8)
+		final_icon_color = main_color
+	elif is_hovered:
+		# 悬停状态：边框使用悬停高亮色，图标保持主色
+		final_border_color = hover_color
+		final_icon_color = main_color
+	else:
+		# 默认状态
+		final_border_color = border_color
+		final_icon_color = main_color
+
+	# 应用边框颜色
+	if _border_layer:
+		var style_box := _border_layer.get_theme_stylebox("panel")
+		if style_box is StyleBoxFlat:
+			style_box.border_color = final_border_color
+
+	# 应用图标颜色
+	if _icon_layer:
+		_icon_layer.modulate = final_icon_color
 
 
 ## 清理
@@ -146,13 +236,11 @@ func set_hover(hovered: bool) -> void:
 		return
 
 	is_hovered = hovered
+	_update_visual_state()  # 使用统一的视觉状态更新
+
 	if hovered:
-		if not is_selected and not is_drag_highlighted:
-			modulate = Color(1.2, 1.2, 1.2)  # 轻微高亮
 		tile_hovered.emit(self)
 	else:
-		if not is_selected and not is_drag_highlighted:
-			modulate = Color.WHITE
 		tile_unhovered.emit(self)
 
 
@@ -194,7 +282,7 @@ func _debug_log_drag_start(source: String, cell: Vector2i, tile_type: TileConsta
 ## 创建拖拽预览
 func _create_drag_preview() -> Control:
 	var preview := TextureRect.new()
-	preview.texture = _texture_rect.texture
+	preview.texture = _icon_layer.texture  # 使用图标而非贴图
 	preview.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	preview.custom_minimum_size = Vector2(67, 54)
 	preview.modulate = Color(1, 1, 1, 0.8)
@@ -212,7 +300,7 @@ func _create_drag_preview() -> Control:
 	style_box.border_width_top = 2
 	style_box.border_width_right = 2
 	style_box.border_width_bottom = 2
-	style_box.border_color = Color(1.0, 0.8, 0.0)  # 金黄色边框
+	style_box.border_color = Color(1.0, 0.8, 0.0)
 	container.add_theme_stylebox_override("panel", style_box)
 
 	return container
@@ -286,7 +374,7 @@ func _show_drag_highlight() -> void:
 		return
 
 	is_drag_highlighted = true
-	modulate = Color(1.2, 1.2, 0.8)  # 淡黄色高亮
+	_update_visual_state()  # 使用统一的视觉状态更新
 
 
 ## 清除全局拖拽高亮
@@ -302,13 +390,7 @@ func _hide_drag_highlight() -> void:
 		return
 
 	is_drag_highlighted = false
-	# 恢复颜色
-	if is_selected:
-		modulate = Color.YELLOW
-	elif is_hovered:
-		modulate = Color(1.2, 1.2, 1.2)
-	else:
-		modulate = Color.WHITE
+	_update_visual_state()  # 使用统一的视觉状态更新
 
 
 ## 检测拖拽结束（使用通知）

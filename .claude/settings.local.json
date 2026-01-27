@@ -29,7 +29,25 @@
       "Bash(uvx:*)",
       "Bash(claude mcp add --scope user serena -- uvx --from git+https://github.com/oraios/serena serena start-mcp-server --context=claude-code --project-from-cwd)",
       "Bash(claude mcp:*)",
-      "mcp__godot-mcp__get_uid"
+      "mcp__godot-mcp__get_uid",
+      "mcp__context7__resolve-library-id",
+      "mcp__context7__query-docs",
+      "Bash(identify \"H:\\\\!GameStart\\\\TileSummoner\\\\Assets\\\\Sprites\\\\Tiles\\\\Tile_Grassland_01.png\")",
+      "mcp__godot-ultimate__godot_lint_file",
+      "mcp__godot-ultimate__godot_get_complexity",
+      "mcp__godot-ultimate__godot_analyze_dependencies",
+      "mcp__godot-ultimate__godot_project_health",
+      "Bash(addonsgdunit4run_cmd.bat --test Scripts/test/test_tile_icon_system.gd)",
+      "Bash(\"addons\\\\gdunit4\\\\run_cmd.bat\" --test \"Scripts/test/test_tile_icon_system.gd\")",
+      "mcp__godot-ultimate__godot_run_tests",
+      "Bash(godot:*)",
+      "Bash(if [ ! -d \".claude\" ])",
+      "Bash(then mkdir -p .claude)",
+      "Bash(fi)",
+      "Bash(\"C:\\\\Program Files\\\\Godot\\\\Godot_v4.5.1-stable_win64.exe\":*)",
+      "Bash(ls:*)",
+      "Bash(python3:*)",
+      "Skill(hookify:help)"
     ]
   },
   "enabledPlugins": {

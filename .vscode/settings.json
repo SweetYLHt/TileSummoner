@@ -1,3 +1,91 @@
 {
-  "godotTools.editorPath.godot4": "h:\\Godot_v4.5.1-stable_win64.exe\\Godot_v4.5.1-stable_win64.exe"
+  "godotTools.editorPath.godot4": "h:\\Godot_v4.5.1-stable_win64.exe\\Godot_v4.5.1-stable_win64.exe",
+  "godot_tools.scene_file_picker.commonScenes": [
+    "res://Scenes/tile/tile.tscn",
+    "res://Scenes/unit/unit.tscn",
+    "res://Scenes/ui/main_menu.tscn"
+  ],
+  "gdscript_lsp.server_port": 6008,
+  "gdscript_lsp.host": "127.0.0.1",
+  "gdscript_lsp.start_server": true,
+  "files.associations": {
+    "*.gd": "gdscript",
+    "*.gdshader": "gdshader"
+  },
+  "editor.formatOnSave": false,
+  "editor.tabSize": 4,
+  "editor.insertSpaces": false,
+  "editor.detectIndentation": false,
+  "files.eol": "\n",
+  "files.trimTrailingWhitespace": true,
+  "files.insertFinalNewline": true,
+  "files.exclude": {
+    "**/.godot/": true,
+    "**/imports/": true,
+    "**/.import/": true,
+    "**/.gdignore": true
+  },
+  "search.exclude": {
+    "**/.godot/": true,
+    "**/imports/": true,
+    "**/.import/": true
+  },
+  "files.watcherExclude": {
+    "**/.godot/": true,
+    "**/imports/": true
+  },
+  "[gdscript]": {
+    "editor.defaultFormatter": "geequlim.godot-tools",
+    "editor.tabSize": 4,
+    "editor.insertSpaces": false
+  },
+  "[markdown]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[json]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[yaml]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "cSpell.words": [
+    "godot",
+    "gdscript",
+    "gdshader",
+    "tres",
+    "tscn",
+    "autoload",
+    "node2d",
+    "node3d",
+    "viewport",
+    "refcounted",
+    "resource",
+    "packedscene",
+    "tileset",
+    "tilemap",
+    "tilemaplayer",
+    "polygon2d",
+    "sprite2d",
+    "area2d",
+    "collisionshape2d",
+    "animationplayer",
+    "audiostreamplayer",
+    "canvaslayer",
+    "colorrect",
+    "hboxcontainer",
+    "vboxcontainer",
+    "gridcontainer",
+    "label",
+    "lineedit",
+    "button",
+    "texturebutton",
+    "texturerect",
+    "panel",
+    "popup",
+    "acceptdialog",
+    "confirmationdialog"
+  ]
 }

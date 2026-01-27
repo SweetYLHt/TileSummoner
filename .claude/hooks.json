@@ -1,0 +1,49 @@
+{
+  "description": "TileSummoner project hooks",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Users\\Administrator\\.claude\\plugins\\cache\\claude-plugins-official\\hookify\\e30768372b41\\hooks\\run-python-hook.cmd\" pretooluse.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Users\\Administrator\\.claude\\plugins\\cache\\claude-plugins-official\\hookify\\e30768372b41\\hooks\\run-python-hook.cmd\" posttooluse.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Users\\Administrator\\.claude\\plugins\\cache\\claude-plugins-official\\hookify\\e30768372b41\\hooks\\run-python-hook.cmd\" stop.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"C:\\Users\\Administrator\\.claude\\plugins\\cache\\claude-plugins-official\\hookify\\e30768372b41\\hooks\\run-python-hook.cmd\" userpromptsubmit.py",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}

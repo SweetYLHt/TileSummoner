@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://terrain_list_item"]
+
+[ext_resource type="Script" path="res://Scripts/ui/terrain_config/terrain_list_item.gd" id="list_item_script"]
+
+[sub_resource type="StyleBoxFlat" id="drag_preview_style"]
+bg_color = Color(0.87, 0.7, 0.16, 0.2)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.87, 0.7, 0.16, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="TerrainListItem" type="Button"]
+custom_minimum_size = Vector2(0, 50)
+theme_override_constants/outline_size = 0
+script = ExtResource("list_item_script")
+
+[node name="HBox" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = 10.0
+offset_top = 5.0
+offset_right = -10.0
+offset_bottom = -5.0
+theme_override_constants/separation = 12
+
+[node name="Icon" type="TextureRect" parent="HBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(40, 40)
+stretch_mode = 5
+
+[node name="VBox" type="VBoxContainer" parent="HBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="NameLabel" type="Label" parent="HBox/VBox"]
+layout_mode = 2
+text = "地形名称"
+horizontal_alignment = 1
+
+[node name="CountLabel" type="Label" parent="HBox/VBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 12
+text = "x99"
+horizontal_alignment = 1

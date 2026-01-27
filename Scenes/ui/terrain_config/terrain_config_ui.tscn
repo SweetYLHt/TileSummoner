@@ -1,0 +1,173 @@
+[gd_scene load_steps=5 format=3 uid="uid://soqedlcgv1pg"]
+
+[ext_resource type="Resource" uid="uid://im1x7wsebqrf" path="res://Resources/data/terrain_config_data.tres" id="config_data"]
+[ext_resource type="Theme" uid="uid://b4fip4es7t5vi" path="res://Resources/ui/cyberpunk_theme.tres" id="cyberpunk_theme"]
+[ext_resource type="Resource" uid="uid://dbfnbn344cfkg" path="res://Resources/Tiles/Configs/player_default.tres" id="preset_config"]
+[ext_resource type="Script" uid="uid://ctydi7seg7q73" path="res://Scripts/ui/terrain_config/terrain_config_ui.gd" id="ui_script"]
+
+[node name="TerrainConfigUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("cyberpunk_theme")
+script = ExtResource("ui_script")
+config_data = ExtResource("config_data")
+default_preset_config = ExtResource("preset_config")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 0
+
+[node name="Header" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Header"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 15.0
+offset_right = -20.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer/Header/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 24
+text = "地形配置"
+vertical_alignment = 1
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Header/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DifficultyOption" type="OptionButton" parent="VBoxContainer/Header/HBoxContainer"]
+custom_minimum_size = Vector2(150, 40)
+layout_mode = 2
+alignment = 1
+selected = 0
+item_count = 4
+popup/item_0/text = "玩家默认"
+popup/item_0/id = 0
+popup/item_1/text = "简单敌人"
+popup/item_1/id = 1
+popup/item_2/text = "中等敌人"
+popup/item_2/id = 2
+popup/item_3/text = "困难敌人"
+popup/item_3/id = 3
+
+[node name="BackButton" type="Button" parent="VBoxContainer/Header/HBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+text = "返回"
+
+[node name="StartButton" type="Button" parent="VBoxContainer/Header/HBoxContainer"]
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 2
+text = "开始"
+
+[node name="ContentHSplit" type="HSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 10
+
+[node name="Sidebar" type="Panel" parent="VBoxContainer/ContentHSplit"]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ContentHSplit/Sidebar"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 10
+
+[node name="SidebarTitle" type="Label" parent="VBoxContainer/ContentHSplit/Sidebar/VBoxContainer"]
+layout_mode = 2
+text = "可用地形"
+horizontal_alignment = 1
+
+[node name="TerrainList" type="ScrollContainer" parent="VBoxContainer/ContentHSplit/Sidebar/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TerrainListContainer" type="VBoxContainer" parent="VBoxContainer/ContentHSplit/Sidebar/VBoxContainer/TerrainList"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="MainArea" type="Panel" parent="VBoxContainer/ContentHSplit"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ContentHSplit/MainArea"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 15
+
+[node name="GridTitle" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer"]
+layout_mode = 2
+text = "战场配置 (4×7)"
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/CenterContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 7
+
+[node name="Footer" type="Panel" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Footer"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 10.0
+offset_right = -20.0
+offset_bottom = -10.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Spacer" type="Control" parent="VBoxContainer/Footer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ResetButton" type="Button" parent="VBoxContainer/Footer/HBoxContainer"]
+custom_minimum_size = Vector2(120, 40)
+layout_mode = 2
+text = "重置配置"

@@ -7,6 +7,7 @@ class_name SceneManager
 ## 场景路径常量
 const MAIN_MENU_SCENE: String = "res://Scenes/main_menu.tscn"
 const TILE_EDITOR_SCENE: String = "res://Scenes/tile_editor.tscn"
+const TERRAIN_CONFIG_SCENE: String = "res://Scenes/ui/terrain_config/terrain_config_ui.tscn"
 const BATTLE_SCENE: String = "res://Scenes/battle_scene.tscn"
 const SETTINGS_SCENE: String = "res://Scenes/ui/settings_menu.tscn"
 
@@ -25,6 +26,11 @@ static func transition_to_main_menu() -> void:
 ## 切换到地形编辑界面
 static func transition_to_tile_editor() -> void:
 	_change_scene(TILE_EDITOR_SCENE)
+
+
+## 切换到地形配置界面
+static func transition_to_terrain_config() -> void:
+	_change_scene(TERRAIN_CONFIG_SCENE)
 
 
 ## 切换到战斗场景
