@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuites id="2026-01-26" name="report_1" tests="9" failures="0" skipped="0" flaky="0" time="0.000">
-	<testsuite id="0" name="test_tile_icon_system" package="Scripts/test" timestamp="2026-01-26T07:36:10" hostname="localhost" tests="9" failures="0" errors="0" skipped="0" flaky="0" time="0.339">
-		<testcase name="test_tile_has_icon_layer" classname="test_tile_icon_system" time="0.028">
+<testsuites id="2026-01-27" name="report_1" tests="16" failures="0" skipped="0" flaky="0" time="0.000">
+	<testsuite id="0" name="test_ui_color_utils" package="Scripts/test" timestamp="2026-01-27T09:36:37" hostname="localhost" tests="16" failures="0" errors="0" skipped="0" flaky="0" time="0.552">
+		<testcase name="test_calculate_bg_color_grassland" classname="test_ui_color_utils" time="0.021">
 		</testcase>
-		<testcase name="test_tile_has_border_layer" classname="test_tile_icon_system" time="0.035">
+		<testcase name="test_calculate_bg_color_water" classname="test_ui_color_utils" time="0.014">
 		</testcase>
-		<testcase name="test_tile_loads_correct_icon" classname="test_tile_icon_system" time="0.021">
+		<testcase name="test_calculate_bg_color_transparency" classname="test_ui_color_utils" time="0.013">
 		</testcase>
-		<testcase name="test_all_tile_types_have_correct_icons" classname="test_tile_icon_system" time="0.021">
+		<testcase name="test_calculate_bg_color_brightness" classname="test_ui_color_utils" time="0.014">
 		</testcase>
-		<testcase name="test_tile_border_color_matches_terrain" classname="test_tile_icon_system" time="0.020">
+		<testcase name="test_calculate_bg_color_custom_brightness" classname="test_ui_color_utils" time="0.014">
 		</testcase>
-		<testcase name="test_tile_icon_color_matches_terrain" classname="test_tile_icon_system" time="0.020">
+		<testcase name="test_calculate_bg_color_custom_alpha" classname="test_ui_color_utils" time="0.014">
 		</testcase>
-		<testcase name="test_tile_hover_color_change" classname="test_tile_icon_system" time="0.020">
+		<testcase name="test_calculate_icon_border_color" classname="test_ui_color_utils" time="0.014">
 		</testcase>
-		<testcase name="test_tile_selected_color_change" classname="test_tile_icon_system" time="0.021">
+		<testcase name="test_calculate_icon_border_color_custom_alpha" classname="test_ui_color_utils" time="0.013">
 		</testcase>
-		<testcase name="test_all_terrain_colors_configured" classname="test_tile_icon_system" time="0.021">
+		<testcase name="test_calculate_glow_color_preserves_rgb" classname="test_ui_color_utils" time="0.014">
+		</testcase>
+		<testcase name="test_calculate_glow_color_default_intensity" classname="test_ui_color_utils" time="0.014">
+		</testcase>
+		<testcase name="test_calculate_glow_color_custom_intensity" classname="test_ui_color_utils" time="0.013">
+		</testcase>
+		<testcase name="test_calculate_hover_brighten_color" classname="test_ui_color_utils" time="0.021">
+		</testcase>
+		<testcase name="test_calculate_hover_brighten_color_clamps" classname="test_ui_color_utils" time="0.021">
+		</testcase>
+		<testcase name="test_calculate_hover_brighten_color_preserves_alpha" classname="test_ui_color_utils" time="0.021">
+		</testcase>
+		<testcase name="test_create_terrain_stylebox" classname="test_ui_color_utils" time="0.013">
+		</testcase>
+		<testcase name="test_create_terrain_stylebox_with_glow" classname="test_ui_color_utils" time="0.013">
 		</testcase>
 	</testsuite>
 </testsuites>

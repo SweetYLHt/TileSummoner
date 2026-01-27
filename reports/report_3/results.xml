@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites id="2026-01-27" name="report_3" tests="16" failures="0" skipped="0" flaky="0" time="0.000">
+	<testsuite id="0" name="test_terrain_config_ui" package="Scripts/test" timestamp="2026-01-27T09:08:04" hostname="localhost" tests="16" failures="0" errors="1" skipped="0" flaky="0" time="1.484">
+		<testcase name="test_edited_slots_count_initial" classname="test_terrain_config_ui" time="0.140">
+			<error message="ERROR: res://Scripts/test/test_terrain_config_ui.gd:43" type="ABORT">
+<![CDATA[
+Godot Runtime Error !
+	'at: TestTerrainConfigUI.test_edited_slots_count_initial (res://Scripts/test/test_terrain_config_ui.gd:43)'
+Error: 'Invalid call. Nonexistent function 'is_greater_or_equal' in base 'RefCounted (GdUnitIntAssertImpl.gd)'.'
+]]>
+			</error>
+		</testcase>
+		<testcase name="test_get_edited_slots_count_method_exists" classname="test_terrain_config_ui" time="0.087">
+		</testcase>
+		<testcase name="test_get_available_tiles_count_method_exists" classname="test_terrain_config_ui" time="0.058">
+		</testcase>
+		<testcase name="test_row_labels_exist" classname="test_terrain_config_ui" time="0.075">
+		</testcase>
+		<testcase name="test_col_labels_exist" classname="test_terrain_config_ui" time="0.058">
+		</testcase>
+		<testcase name="test_reset_button_exists" classname="test_terrain_config_ui" time="0.055">
+		</testcase>
+		<testcase name="test_reset_config_method_exists" classname="test_terrain_config_ui" time="0.056">
+		</testcase>
+		<testcase name="test_edited_value_label_exists" classname="test_terrain_config_ui" time="0.062">
+		</testcase>
+		<testcase name="test_selection_value_label_exists" classname="test_terrain_config_ui" time="0.056">
+		</testcase>
+		<testcase name="test_tiles_value_label_exists" classname="test_terrain_config_ui" time="0.057">
+		</testcase>
+		<testcase name="test_start_button_exists" classname="test_terrain_config_ui" time="0.055">
+		</testcase>
+		<testcase name="test_back_button_exists" classname="test_terrain_config_ui" time="0.054">
+		</testcase>
+		<testcase name="test_grid_container_exists" classname="test_terrain_config_ui" time="0.059">
+		</testcase>
+		<testcase name="test_grid_container_columns" classname="test_terrain_config_ui" time="0.055">
+		</testcase>
+		<testcase name="test_sidebar_title_exists" classname="test_terrain_config_ui" time="0.054">
+		</testcase>
+		<testcase name="test_terrain_list_container_exists" classname="test_terrain_config_ui" time="0.063">
+		</testcase>
+	</testsuite>
+</testsuites>

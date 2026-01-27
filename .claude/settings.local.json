@@ -47,7 +47,17 @@
       "Bash(\"C:\\\\Program Files\\\\Godot\\\\Godot_v4.5.1-stable_win64.exe\":*)",
       "Bash(ls:*)",
       "Bash(python3:*)",
-      "Skill(hookify:help)"
+      "Skill(hookify:help)",
+      "WebFetch(domain:fonts.googleapis.com)",
+      "Bash(\"C:\\\\Program Files\\\\Godot\\\\Godot.exe\" --headless -s addons/gdUnit4/bin/GdUnitCmdTool.gd --ignoreHeadlessMode --add \"res://Scripts/test/test_terrain_list_item.gd\")",
+      "Bash(\"C:\\\\Program Files\\\\Godot\\\\Godot.exe\" --headless -s addons/gdUnit4/bin/GdUnitCmdTool.gd --ignoreHeadlessMode --add \"res://Scripts/test/test_terrain_config_ui.gd\")",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:oraios.github.io)",
+      "WebFetch(domain:claudelog.com)",
+      "WebFetch(domain:apidog.com)",
+      "WebFetch(domain:smartscope.blog)",
+      "mcp__godot-ultimate__godot_run_test_file"
     ]
   },
   "enabledPlugins": {

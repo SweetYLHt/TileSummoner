@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites id="2026-01-27" name="report_4" tests="10" failures="0" skipped="0" flaky="0" time="0.000">
+	<testsuite id="0" name="test_terrain_list_item" package="Scripts/test" timestamp="2026-01-27T09:09:33" hostname="localhost" tests="10" failures="0" errors="0" skipped="0" flaky="0" time="0.717">
+		<testcase name="test_background_color_calculation" classname="test_terrain_list_item" time="0.032">
+		</testcase>
+		<testcase name="test_icon_container_exists" classname="test_terrain_list_item" time="0.039">
+		</testcase>
+		<testcase name="test_icon_container_colored_background" classname="test_terrain_list_item" time="0.029">
+		</testcase>
+		<testcase name="test_icon_colored_with_main_color" classname="test_terrain_list_item" time="0.027">
+		</testcase>
+		<testcase name="test_count_label_format" classname="test_terrain_list_item" time="0.036">
+		</testcase>
+		<testcase name="test_count_label_format_after_update" classname="test_terrain_list_item" time="0.035">
+		</testcase>
+		<testcase name="test_hover_animation_icon_scale" classname="test_terrain_list_item" time="0.224">
+		</testcase>
+		<testcase name="test_disabled_state_gray" classname="test_terrain_list_item" time="0.036">
+		</testcase>
+		<testcase name="test_disabled_state_no_drag" classname="test_terrain_list_item" time="0.020">
+		</testcase>
+		<testcase name="test_drag_data_correct" classname="test_terrain_list_item" time="0.040">
+		</testcase>
+	</testsuite>
+</testsuites>

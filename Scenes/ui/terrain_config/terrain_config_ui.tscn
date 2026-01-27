@@ -1,8 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://soqedlcgv1pg"]
+[gd_scene load_steps=9 format=3 uid="uid://soqedlcgv1pg"]
 
 [ext_resource type="Resource" uid="uid://im1x7wsebqrf" path="res://Resources/data/terrain_config_data.tres" id="config_data"]
 [ext_resource type="Theme" uid="uid://b4fip4es7t5vi" path="res://Resources/ui/cyberpunk_theme.tres" id="cyberpunk_theme"]
+[ext_resource type="Texture2D" uid="uid://bb8w8y7qilhmy" path="res://Assets/Icons/UI/grid_view.svg" id="grid_view_icon"]
+[ext_resource type="Texture2D" uid="uid://ek6q8puxlni5" path="res://Assets/Icons/UI/info.svg" id="info_icon"]
 [ext_resource type="Resource" uid="uid://dbfnbn344cfkg" path="res://Resources/Tiles/Configs/player_default.tres" id="preset_config"]
+[ext_resource type="Texture2D" uid="uid://ytafxr58jj7s" path="res://Assets/Icons/UI/restart_alt.svg" id="restart_icon"]
+[ext_resource type="Texture2D" uid="uid://2hc6sdatcl1s" path="res://Assets/Icons/UI/swords.svg" id="swords_icon"]
 [ext_resource type="Script" uid="uid://ctydi7seg7q73" path="res://Scripts/ui/terrain_config/terrain_config_ui.gd" id="ui_script"]
 
 [node name="TerrainConfigUI" type="Control"]
@@ -27,7 +31,7 @@ grow_vertical = 2
 theme_override_constants/separation = 0
 
 [node name="Header" type="Panel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 70)
+custom_minimum_size = Vector2(0, 64)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Header"]
@@ -36,56 +40,112 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 20.0
-offset_top = 15.0
+offset_top = 12.0
 offset_right = -20.0
-offset_bottom = -15.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+theme_override_constants/separation = 12
+
+[node name="TitleIcon" type="TextureRect" parent="VBoxContainer/Header/HBoxContainer"]
+modulate = Color(0.87, 0.7, 0.16, 1)
+custom_minimum_size = Vector2(28, 28)
+layout_mode = 2
+texture = ExtResource("grid_view_icon")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="TitleLabel" type="Label" parent="VBoxContainer/Header/HBoxContainer"]
 layout_mode = 2
-size_flags_horizontal = 3
-theme_override_font_sizes/font_size = 24
-text = "地形配置"
+theme_override_font_sizes/font_size = 20
+text = "Tile Summoner"
+vertical_alignment = 1
+
+[node name="TitleSeparator" type="Label" parent="VBoxContainer/Header/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 20
+text = "|"
+vertical_alignment = 1
+
+[node name="SubtitleLabel" type="Label" parent="VBoxContainer/Header/HBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+theme_override_font_sizes/font_size = 16
+text = "Terrain Config"
 vertical_alignment = 1
 
 [node name="Spacer" type="Control" parent="VBoxContainer/Header/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="DifficultyOption" type="OptionButton" parent="VBoxContainer/Header/HBoxContainer"]
-custom_minimum_size = Vector2(150, 40)
+[node name="DifficultyContainer" type="HBoxContainer" parent="VBoxContainer/Header/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="DifficultyLabel" type="Label" parent="VBoxContainer/Header/HBoxContainer/DifficultyContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 10
+text = "DIFFICULTY"
+vertical_alignment = 1
+
+[node name="DifficultyOption" type="OptionButton" parent="VBoxContainer/Header/HBoxContainer/DifficultyContainer"]
+custom_minimum_size = Vector2(130, 36)
 layout_mode = 2
 alignment = 1
 selected = 0
 item_count = 4
-popup/item_0/text = "玩家默认"
+popup/item_0/text = "Easy"
 popup/item_0/id = 0
-popup/item_1/text = "简单敌人"
+popup/item_1/text = "Normal"
 popup/item_1/id = 1
-popup/item_2/text = "中等敌人"
+popup/item_2/text = "Hard"
 popup/item_2/id = 2
-popup/item_3/text = "困难敌人"
+popup/item_3/text = "Nightmare"
 popup/item_3/id = 3
 
 [node name="BackButton" type="Button" parent="VBoxContainer/Header/HBoxContainer"]
-custom_minimum_size = Vector2(100, 40)
+custom_minimum_size = Vector2(90, 36)
 layout_mode = 2
-text = "返回"
+text = "BACK"
 
 [node name="StartButton" type="Button" parent="VBoxContainer/Header/HBoxContainer"]
-custom_minimum_size = Vector2(100, 40)
+custom_minimum_size = Vector2(140, 36)
 layout_mode = 2
-text = "开始"
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/Header/HBoxContainer/StartButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="SwordsIcon" type="TextureRect" parent="VBoxContainer/Header/HBoxContainer/StartButton/HBox"]
+modulate = Color(0.1, 0.1, 0.1, 1)
+custom_minimum_size = Vector2(18, 18)
+layout_mode = 2
+texture = ExtResource("swords_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/Header/HBoxContainer/StartButton/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.1, 0.1, 0.1, 1)
+theme_override_font_sizes/font_size = 12
+text = "START BATTLE"
+vertical_alignment = 1
 
 [node name="ContentHSplit" type="HSplitContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_constants/separation = 10
+theme_override_constants/separation = 0
 
 [node name="Sidebar" type="Panel" parent="VBoxContainer/ContentHSplit"]
-custom_minimum_size = Vector2(250, 0)
+custom_minimum_size = Vector2(280, 0)
 layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/ContentHSplit/Sidebar"]
@@ -93,18 +153,38 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = -10.0
-offset_bottom = -10.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 10
+theme_override_constants/separation = 0
 
-[node name="SidebarTitle" type="Label" parent="VBoxContainer/ContentHSplit/Sidebar/VBoxContainer"]
+[node name="SidebarHeader" type="Panel" parent="VBoxContainer/ContentHSplit/Sidebar/VBoxContainer"]
+custom_minimum_size = Vector2(0, 60)
 layout_mode = 2
-text = "可用地形"
-horizontal_alignment = 1
+
+[node name="VBox" type="VBoxContainer" parent="VBoxContainer/ContentHSplit/Sidebar/VBoxContainer/SidebarHeader"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 4
+
+[node name="SidebarTitle" type="Label" parent="VBoxContainer/ContentHSplit/Sidebar/VBoxContainer/SidebarHeader/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 10
+text = "TERRAIN SELECTION"
+
+[node name="SidebarSubtitle" type="Label" parent="VBoxContainer/ContentHSplit/Sidebar/VBoxContainer/SidebarHeader/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 10
+text = "Drag to equip tiles"
 
 [node name="TerrainList" type="ScrollContainer" parent="VBoxContainer/ContentHSplit/Sidebar/VBoxContainer"]
 layout_mode = 2
@@ -114,7 +194,39 @@ size_flags_vertical = 3
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+theme_override_constants/separation = 4
+
+[node name="SidebarFooter" type="Panel" parent="VBoxContainer/ContentHSplit/Sidebar/VBoxContainer"]
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/ContentHSplit/Sidebar/VBoxContainer/SidebarFooter"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 12.0
+offset_right = -16.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_constants/separation = 8
+alignment = 1
+
+[node name="InfoIcon" type="TextureRect" parent="VBoxContainer/ContentHSplit/Sidebar/VBoxContainer/SidebarFooter/HBox"]
+modulate = Color(0.4, 0.4, 0.4, 1)
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+texture = ExtResource("info_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="HintLabel" type="Label" parent="VBoxContainer/ContentHSplit/Sidebar/VBoxContainer/SidebarFooter/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 11
+text = "Right-click to remove tile"
 
 [node name="MainArea" type="Panel" parent="VBoxContainer/ContentHSplit"]
 layout_mode = 2
@@ -124,31 +236,222 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 20.0
-offset_top = 20.0
-offset_right = -20.0
-offset_bottom = -20.0
+offset_left = 40.0
+offset_top = 24.0
+offset_right = -40.0
+offset_bottom = -24.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 15
+theme_override_constants/separation = 0
 
-[node name="GridTitle" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer"]
+[node name="TopBar" type="HBoxContainer" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer"]
 layout_mode = 2
-text = "战场配置 (4×7)"
-horizontal_alignment = 1
+theme_override_constants/separation = 20
 
-[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer"]
+[node name="LeftInfo" type="VBoxContainer" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/TopBar"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 4
+
+[node name="ModeLabel" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/TopBar/LeftInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.7, 0.16, 1)
+theme_override_font_sizes/font_size = 10
+text = "CONFIGURATION MODE"
+
+[node name="TitleRow" type="HBoxContainer" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/TopBar/LeftInfo"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="GridTitle" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/TopBar/LeftInfo/TitleRow"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 24
+text = "Ally Tile Configuration"
+
+[node name="GridSizeLabel" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/TopBar/LeftInfo/TitleRow"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+text = "4x7 Grid"
+vertical_alignment = 1
+
+[node name="RightInfo" type="HBoxContainer" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/TopBar"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="SelectionInfo" type="VBoxContainer" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/TopBar/RightInfo"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/TopBar/RightInfo/SelectionInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 10
+text = "CURRENT SELECTION"
+horizontal_alignment = 2
+
+[node name="SelectionValue" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/TopBar/RightInfo/SelectionInfo"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "None"
+horizontal_alignment = 2
+
+[node name="EditedInfo" type="VBoxContainer" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/TopBar/RightInfo"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Label" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/TopBar/RightInfo/EditedInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 10
+text = "EDITED SLOTS"
+horizontal_alignment = 2
+
+[node name="EditedValue" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/TopBar/RightInfo/EditedInfo"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.7, 0.16, 1)
+theme_override_font_sizes/font_size = 16
+text = "0/28"
+horizontal_alignment = 2
+
+[node name="GridWrapper" type="CenterContainer" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/CenterContainer"]
+[node name="GridWithLabels" type="Control" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper"]
+custom_minimum_size = Vector2(640, 380)
 layout_mode = 2
-theme_override_constants/h_separation = 10
-theme_override_constants/v_separation = 10
+
+[node name="RowLabels" type="VBoxContainer" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels"]
+layout_mode = 1
+offset_top = 40.0
+offset_right = 20.0
+offset_bottom = 380.0
+theme_override_constants/separation = 10
+
+[node name="LabelA" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels/RowLabels"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 10
+text = "A"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelB" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels/RowLabels"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 10
+text = "B"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelC" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels/RowLabels"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 10
+text = "C"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelD" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels/RowLabels"]
+custom_minimum_size = Vector2(0, 80)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 10
+text = "D"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ColLabels" type="HBoxContainer" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels"]
+layout_mode = 1
+offset_left = 30.0
+offset_right = 640.0
+offset_bottom = 30.0
+theme_override_constants/separation = 10
+
+[node name="Label1" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels/ColLabels"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 10
+text = "1"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels/ColLabels"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 10
+text = "2"
+horizontal_alignment = 1
+
+[node name="Label3" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels/ColLabels"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 10
+text = "3"
+horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels/ColLabels"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 10
+text = "4"
+horizontal_alignment = 1
+
+[node name="Label5" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels/ColLabels"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 10
+text = "5"
+horizontal_alignment = 1
+
+[node name="Label6" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels/ColLabels"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 10
+text = "6"
+horizontal_alignment = 1
+
+[node name="Label7" type="Label" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels/ColLabels"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.4, 0.4, 0.4, 1)
+theme_override_font_sizes/font_size = 10
+text = "7"
+horizontal_alignment = 1
+
+[node name="GridPanel" type="Panel" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels"]
+layout_mode = 1
+offset_left = 24.0
+offset_top = 32.0
+offset_right = 640.0
+offset_bottom = 380.0
+
+[node name="GridContainer" type="GridContainer" parent="VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels/GridPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = -8.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 6
+theme_override_constants/v_separation = 6
 columns = 7
 
 [node name="Footer" type="Panel" parent="VBoxContainer"]
-custom_minimum_size = Vector2(0, 60)
+custom_minimum_size = Vector2(0, 48)
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Footer"]
@@ -157,17 +460,97 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 20.0
-offset_top = 10.0
+offset_top = 8.0
 offset_right = -20.0
-offset_bottom = -10.0
+offset_bottom = -8.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ResetButton" type="Button" parent="VBoxContainer/Footer/HBoxContainer"]
+custom_minimum_size = Vector2(160, 32)
+layout_mode = 2
+
+[node name="HBox" type="HBoxContainer" parent="VBoxContainer/Footer/HBoxContainer/ResetButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 8
+alignment = 1
+
+[node name="RestartIcon" type="TextureRect" parent="VBoxContainer/Footer/HBoxContainer/ResetButton/HBox"]
+modulate = Color(0.9, 0.3, 0.3, 1)
+custom_minimum_size = Vector2(14, 14)
+layout_mode = 2
+texture = ExtResource("restart_icon")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="VBoxContainer/Footer/HBoxContainer/ResetButton/HBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.9, 0.3, 0.3, 1)
+theme_override_font_sizes/font_size = 11
+text = "Reset Configuration"
+vertical_alignment = 1
 
 [node name="Spacer" type="Control" parent="VBoxContainer/Footer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ResetButton" type="Button" parent="VBoxContainer/Footer/HBoxContainer"]
-custom_minimum_size = Vector2(120, 40)
+[node name="StatusBar" type="HBoxContainer" parent="VBoxContainer/Footer/HBoxContainer"]
 layout_mode = 2
-text = "重置配置"
+theme_override_constants/separation = 16
+
+[node name="ReadyStatus" type="HBoxContainer" parent="VBoxContainer/Footer/HBoxContainer/StatusBar"]
+layout_mode = 2
+theme_override_constants/separation = 6
+
+[node name="ReadyDot" type="Panel" parent="VBoxContainer/Footer/HBoxContainer/StatusBar/ReadyStatus"]
+custom_minimum_size = Vector2(8, 8)
+layout_mode = 2
+
+[node name="ReadyLabel" type="Label" parent="VBoxContainer/Footer/HBoxContainer/StatusBar/ReadyStatus"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.8, 0.4, 1)
+theme_override_font_sizes/font_size = 12
+text = "Ready"
+vertical_alignment = 1
+
+[node name="Separator1" type="Label" parent="VBoxContainer/Footer/HBoxContainer/StatusBar"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.3, 0.3, 1)
+text = "|"
+vertical_alignment = 1
+
+[node name="DifficultyStatus" type="Label" parent="VBoxContainer/Footer/HBoxContainer/StatusBar"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 12
+text = "Enemy Difficulty: Easy"
+vertical_alignment = 1
+
+[node name="Separator2" type="Label" parent="VBoxContainer/Footer/HBoxContainer/StatusBar"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.3, 0.3, 0.3, 1)
+text = "|"
+vertical_alignment = 1
+
+[node name="TilesStatus" type="HBoxContainer" parent="VBoxContainer/Footer/HBoxContainer/StatusBar"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="TilesLabel" type="Label" parent="VBoxContainer/Footer/HBoxContainer/StatusBar/TilesStatus"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+theme_override_font_sizes/font_size = 12
+text = "Available Tiles:"
+vertical_alignment = 1
+
+[node name="TilesValue" type="Label" parent="VBoxContainer/Footer/HBoxContainer/StatusBar/TilesStatus"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.7, 0.16, 1)
+theme_override_font_sizes/font_size = 12
+text = "61"
+vertical_alignment = 1

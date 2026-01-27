@@ -28,12 +28,20 @@ signal back_requested()
 ## 节点引用
 ## ============================================================================
 
-@onready var _difficulty_option: OptionButton = $VBoxContainer/Header/HBoxContainer/DifficultyOption
+@onready var _difficulty_option: OptionButton = $VBoxContainer/Header/HBoxContainer/DifficultyContainer/DifficultyOption
 @onready var _back_button: Button = $VBoxContainer/Header/HBoxContainer/BackButton
 @onready var _start_button: Button = $VBoxContainer/Header/HBoxContainer/StartButton
 @onready var _terrain_list_container: VBoxContainer = $VBoxContainer/ContentHSplit/Sidebar/VBoxContainer/TerrainList/TerrainListContainer
-@onready var _grid_container: GridContainer = $VBoxContainer/ContentHSplit/MainArea/VBoxContainer/CenterContainer/GridContainer
+@onready var _grid_container: GridContainer = $VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels/GridPanel/GridContainer
 @onready var _reset_button: Button = $VBoxContainer/Footer/HBoxContainer/ResetButton
+
+## 状态信息节点
+@onready var _edited_value_label: Label = $VBoxContainer/ContentHSplit/MainArea/VBoxContainer/TopBar/RightInfo/EditedInfo/EditedValue
+@onready var _selection_value_label: Label = $VBoxContainer/ContentHSplit/MainArea/VBoxContainer/TopBar/RightInfo/SelectionInfo/SelectionValue
+@onready var _difficulty_status_label: Label = $VBoxContainer/Footer/HBoxContainer/StatusBar/DifficultyStatus
+@onready var _tiles_value_label: Label = $VBoxContainer/Footer/HBoxContainer/StatusBar/TilesStatus/TilesValue
+@onready var _ready_dot: Panel = $VBoxContainer/Footer/HBoxContainer/StatusBar/ReadyStatus/ReadyDot
+@onready var _grid_panel: Panel = $VBoxContainer/ContentHSplit/MainArea/VBoxContainer/GridWrapper/GridWithLabels/GridPanel
 
 ## ============================================================================
 ## 内部变量
@@ -59,6 +67,9 @@ var _icon_cache: Dictionary = {}
 
 ## TileInventory 引用（AutoLoad 单例）
 @onready var _tile_inventory: TileInventory = get_node("/root/tileInventory")
+
+## 难度名称映射
+const DIFFICULTY_NAMES := ["Easy", "Normal", "Hard", "Nightmare"]
 
 ## ============================================================================
 ## Godot 生命周期
@@ -93,6 +104,18 @@ func _ready() -> void:
 	if _tile_inventory:
 		_tile_inventory.initialize_default_inventory()
 		_sync_inventory_to_ui()
+
+	# 设置开始按钮样式（金色主按钮）
+	_setup_start_button_style()
+
+	# 设置网格面板样式（外发光）
+	_setup_grid_panel_style()
+
+	# 设置 Ready 指示点样式
+	_setup_ready_dot_style()
+
+	# 更新状态显示
+	_update_status_display()
 
 
 func _input(event: InputEvent) -> void:
@@ -132,7 +155,6 @@ func _load_config_data() -> void:
 	var entries: Array[TerrainEntryResource] = config_data.terrain_entries
 	for entry: TerrainEntryResource in entries:
 		if entry:
-			# 可以在这里加载额外的配置信息
 			pass
 
 
@@ -141,7 +163,7 @@ func _load_preset_config(preset: TileConfig) -> void:
 	if not preset:
 		return
 
-	# 获取玩家区域配置（4×7 = 28个地块）
+	# 获取玩家区域配置（4x7 = 28个地块）
 	var tiles: Array[TileConstants.TileType] = preset.get_player_tiles()
 
 	# 检查数量是否匹配
@@ -161,6 +183,7 @@ func _load_preset_config(preset: TileConfig) -> void:
 
 	# 更新所有槽位显示
 	_update_all_slots()
+	_update_status_display()
 
 
 ## 创建网格槽位
@@ -170,10 +193,11 @@ func _create_grid_slots() -> void:
 		slot.queue_free()
 	_grid_slots.clear()
 
-## 创建新槽位
+	# 创建新槽位
 	var total_slots: int = grid_rows * grid_columns
 	for i in range(total_slots):
 		var slot: TerrainGridSlot = preload("res://Scenes/ui/terrain_config/terrain_grid_slot.tscn").instantiate()
+		@warning_ignore("integer_division")
 		slot.set_grid_position(i / grid_columns, i % grid_columns)
 		slot.drop_data_received.connect(_on_slot_drop_data)
 		_grid_container.add_child(slot)
@@ -209,6 +233,45 @@ func _preload_icons() -> void:
 			_icon_cache[tile_type] = data.texture
 
 
+## 设置开始按钮样式（金色主按钮）
+func _setup_start_button_style() -> void:
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.87, 0.7, 0.16, 1.0)  # 金色
+	style.set_border_width_all(0)
+	style.set_corner_radius_all(4)
+	style.shadow_color = Color(0.87, 0.7, 0.16, 0.4)
+	style.shadow_size = 6
+	_start_button.add_theme_stylebox_override("normal", style)
+
+	var hover_style := style.duplicate() as StyleBoxFlat
+	hover_style.bg_color = Color(0.81, 0.65, 0.15, 1.0)
+	_start_button.add_theme_stylebox_override("hover", hover_style)
+
+	var pressed_style := style.duplicate() as StyleBoxFlat
+	pressed_style.bg_color = Color(0.7, 0.55, 0.1, 1.0)
+	_start_button.add_theme_stylebox_override("pressed", pressed_style)
+
+
+## 设置网格面板样式（外发光）
+func _setup_grid_panel_style() -> void:
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.05, 0.06, 0.08, 0.8)
+	style.set_border_width_all(1)
+	style.border_color = Color(0.3, 0.35, 0.4, 0.5)
+	style.set_corner_radius_all(8)
+	style.shadow_color = Color(0.87, 0.7, 0.16, 0.1)
+	style.shadow_size = 12
+	_grid_panel.add_theme_stylebox_override("panel", style)
+
+
+## 设置 Ready 指示点样式
+func _setup_ready_dot_style() -> void:
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.3, 0.8, 0.4, 1.0)  # 绿色
+	style.set_corner_radius_all(4)  # 圆形
+	_ready_dot.add_theme_stylebox_override("panel", style)
+
+
 ## ============================================================================
 ## 公共方法
 ## ============================================================================
@@ -231,6 +294,8 @@ func reset_config() -> void:
 		_tile_inventory.initialize_default_inventory()
 		_sync_inventory_to_ui()
 
+	_update_status_display()
+
 
 ## 应用预设配置
 func apply_preset(preset_data: Array) -> void:
@@ -239,6 +304,27 @@ func apply_preset(preset_data: Array) -> void:
 
 	_grid_config = preset_data.duplicate(true)
 	_update_all_slots()
+	_update_status_display()
+
+
+## 获取已编辑槽位数
+func get_edited_slots_count() -> int:
+	var count := 0
+	for row in _grid_config:
+		for cell in row:
+			if cell >= 0:
+				count += 1
+	return count
+
+
+## 获取可用地块总数
+func get_available_tiles_count() -> int:
+	if not _tile_inventory:
+		return 0
+	var total := 0
+	for item: TerrainListItem in _terrain_list_items:
+		total += _tile_inventory.get_count(item.get_tile_type())
+	return total
 
 
 ## ============================================================================
@@ -267,6 +353,22 @@ func _sync_inventory_to_ui() -> void:
 		item.update_count(count)
 
 
+## 更新状态显示
+func _update_status_display() -> void:
+	# 更新已编辑槽位数
+	var edited := get_edited_slots_count()
+	var total := grid_rows * grid_columns
+	_edited_value_label.text = "%d/%d" % [edited, total]
+
+	# 更新可用地块数
+	_tiles_value_label.text = str(get_available_tiles_count())
+
+	# 更新难度状态
+	var difficulty_index := _difficulty_option.selected
+	if difficulty_index >= 0 and difficulty_index < DIFFICULTY_NAMES.size():
+		_difficulty_status_label.text = "Enemy Difficulty: %s" % DIFFICULTY_NAMES[difficulty_index]
+
+
 ## ============================================================================
 ## 信号回调
 ## ============================================================================
@@ -289,12 +391,18 @@ func _on_reset_pressed() -> void:
 ## 难度选择改变
 func _on_difficulty_changed(index: int) -> void:
 	_current_config_type = index as TileConstants.ConfigType
-	# 可以根据难度加载不同的预设
+	_update_status_display()
 
 
 ## 地形列表项拖拽开始
 func _on_item_drag_started(tile_type: TileConstants.TileType) -> void:
 	_drag_data = {"tile_type": tile_type}
+	# 更新当前选择显示
+	var data := _get_tile_data(tile_type)
+	if data:
+		_selection_value_label.text = data.display_name
+	else:
+		_selection_value_label.text = TileConstants.get_tile_type_name(tile_type)
 
 
 ## 槽位接收拖拽数据
@@ -354,17 +462,8 @@ func _on_slot_drop_data(slot: TerrainGridSlot, data: Dictionary) -> void:
 		# 同步库存到 UI
 		_sync_inventory_to_ui()
 
+	# 更新状态显示
+	_update_status_display()
 
-## ============================================================================
-## 样式和动画
-## ============================================================================
-
-## 应用赛博朋克发光效果
-func _apply_glow_effect(_control: Control) -> void:
-	var tween := create_tween()
-	tween.set_parallel(true)
-	tween.set_ease(Tween.EASE_OUT)
-	tween.set_trans(Tween.TRANS_BACK)
-
-	# 这里可以添加更多视觉效果
-	pass
+	# 清除当前选择
+	_selection_value_label.text = "None"

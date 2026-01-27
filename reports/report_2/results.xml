@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites id="2026-01-27" name="report_2" tests="16" failures="0" skipped="0" flaky="0" time="0.000">
+	<testsuite id="0" name="test_ui_color_utils" package="Scripts/test" timestamp="2026-01-27T09:07:04" hostname="localhost" tests="16" failures="0" errors="0" skipped="0" flaky="0" time="0.640">
+		<testcase name="test_calculate_bg_color_grassland" classname="test_ui_color_utils" time="0.046">
+		</testcase>
+		<testcase name="test_calculate_bg_color_water" classname="test_ui_color_utils" time="0.011">
+		</testcase>
+		<testcase name="test_calculate_bg_color_transparency" classname="test_ui_color_utils" time="0.010">
+		</testcase>
+		<testcase name="test_calculate_bg_color_brightness" classname="test_ui_color_utils" time="0.015">
+		</testcase>
+		<testcase name="test_calculate_bg_color_custom_brightness" classname="test_ui_color_utils" time="0.013">
+		</testcase>
+		<testcase name="test_calculate_bg_color_custom_alpha" classname="test_ui_color_utils" time="0.013">
+		</testcase>
+		<testcase name="test_calculate_icon_border_color" classname="test_ui_color_utils" time="0.009">
+		</testcase>
+		<testcase name="test_calculate_icon_border_color_custom_alpha" classname="test_ui_color_utils" time="0.009">
+		</testcase>
+		<testcase name="test_calculate_glow_color_preserves_rgb" classname="test_ui_color_utils" time="0.010">
+		</testcase>
+		<testcase name="test_calculate_glow_color_default_intensity" classname="test_ui_color_utils" time="0.021">
+		</testcase>
+		<testcase name="test_calculate_glow_color_custom_intensity" classname="test_ui_color_utils" time="0.014">
+		</testcase>
+		<testcase name="test_calculate_hover_brighten_color" classname="test_ui_color_utils" time="0.013">
+		</testcase>
+		<testcase name="test_calculate_hover_brighten_color_clamps" classname="test_ui_color_utils" time="0.017">
+		</testcase>
+		<testcase name="test_calculate_hover_brighten_color_preserves_alpha" classname="test_ui_color_utils" time="0.010">
+		</testcase>
+		<testcase name="test_create_terrain_stylebox" classname="test_ui_color_utils" time="0.025">
+		</testcase>
+		<testcase name="test_create_terrain_stylebox_with_glow" classname="test_ui_color_utils" time="0.012">
+		</testcase>
+	</testsuite>
+</testsuites>
