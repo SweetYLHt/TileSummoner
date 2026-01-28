@@ -1,0 +1,9 @@
+{
+  "name": "gdscript-lsp",
+  "version": "0.1.0",
+  "description": "GDScript language server via Godot Editor LSP bridge (TCP:6005 -> stdio)",
+  "author": { "name": "TileSummoner" },
+  "license": "MIT",
+  "keywords": ["gdscript", "godot", "lsp", "language-server"],
+  "lspServers": "./.lsp.json"
+}

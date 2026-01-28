@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dqr4j8sy1p6md"]
+
+[ext_resource type="Script" path="res://Scripts/ui/components/styled_button_node.gd" id="1_styled_button"]
+
+[node name="StyledButton" type="Button"]
+custom_minimum_size = Vector2(120, 40)
+offset_right = 120.0
+offset_bottom = 40.0
+script = ExtResource("1_styled_button")

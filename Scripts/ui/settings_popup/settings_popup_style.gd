@@ -1,5 +1,14 @@
 ## 设置弹窗样式工厂
 ##
+## @deprecated 请使用 UI 组件替代:
+## - StyledButton: res://Scripts/ui/components/styled_button.gd
+## - GlassPanel: res://Scripts/ui/components/glass_panel.gd
+## - LabeledSlider: res://Scenes/ui/components/labeled_slider.tscn
+## - SettingsToggle: res://Scenes/ui/components/settings_toggle.tscn
+## - DropdownSelect: res://Scenes/ui/components/dropdown_select.tscn
+##
+## 此类保留用于向后兼容，新代码应使用上述组件
+##
 ## 为玻璃拟态设置弹窗创建各种 StyleBoxFlat 样式
 ## 基于 HTML 设计规范实现
 extends RefCounted

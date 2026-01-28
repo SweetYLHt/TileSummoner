@@ -1,0 +1,14 @@
+{
+  "gdscript": {
+    "command": "python",
+    "args": ["H:\\!GameStart\\TileSummoner\\.claude\\plugins\\gdscript-lsp\\gdscript_lsp_bridge.py"],
+    "extensionToLanguage": {
+      ".gd": "gdscript",
+      ".gdshader": "gdshader"
+    },
+    "transport": "stdio",
+    "initializationOptions": {},
+    "settings": {},
+    "maxRestarts": 3
+  }
+}

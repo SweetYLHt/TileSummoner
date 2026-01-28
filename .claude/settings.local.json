@@ -57,13 +57,37 @@
       "WebFetch(domain:claudelog.com)",
       "WebFetch(domain:apidog.com)",
       "WebFetch(domain:smartscope.blog)",
-      "mcp__godot-ultimate__godot_run_test_file"
+      "mcp__godot-ultimate__godot_run_test_file",
+      "Bash(grep:*)",
+      "mcp__godot-ultimate__godot_env_doctor",
+      "mcp__godot-ultimate__godot_find_references",
+      "mcp__godot-ultimate__godot_go_to_definition",
+      "Bash(find:*)",
+      "mcp__web-reader__webReader",
+      "Bash(gh api:*)",
+      "Bash(\"C:/Program Files/Godot/Godot.exe\" --version)",
+      "Bash(for dir in vtsls rust-analyzer gopls powershell-editor-services)",
+      "Bash(do echo \"=== $dir ===\")",
+      "Bash(done)",
+      "Bash(gh search:*)",
+      "Bash(npm show:*)",
+      "Bash(npx tweakcc:*)",
+      "Bash(set PYTHONIOENCODING=utf-8)",
+      "Bash(PYTHONIOENCODING=utf-8 python:*)",
+      "Bash(PYTHONUTF8=1 PYTHONIOENCODING=utf-8 python:*)",
+      "Bash(\"C:\\\\Program Files\\\\Godot\\\\Godot.exe\" --version)",
+      "Bash(\"C:\\\\Program Files\\\\Godot\\\\Godot.exe\" --headless --path \"H:\\\\!GameStart\\\\TileSummoner\" -s res://addons/gdUnit4/bin/GdUnitCmdTool.gd --add \"res://Scripts/test/test_settings_popup_style.gd\")",
+      "Bash(\"C:\\\\Program Files\\\\Godot\\\\Godot.exe\" --headless --path \"H:\\\\!GameStart\\\\TileSummoner\" -s res://addons/gdUnit4/bin/GdUnitCmdTool.gd --ignoreHeadlessMode --add \"res://Scripts/test/test_settings_popup_style.gd\")",
+      "mcp__godot-ultimate__godot_get_api_docs",
+      "WebFetch(domain:docs.godotengine.org)",
+      "Bash(claude plugin list:*)",
+      "mcp__godot-ultimate__godot_validate_code"
     ]
   },
   "enabledPlugins": {
     "playwright@claude-plugins-official": true,
     "superpowers@claude-plugins-official": true,
     "planning-with-files@planning-with-files": true,
-    "superpowers@superpowers-marketplace": true
+    "gdscript-lsp@local": true
   }
 }

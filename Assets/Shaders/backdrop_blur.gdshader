@@ -1,55 +1,57 @@
 shader_type canvas_item;
 
 uniform sampler2D screen_texture : hint_screen_texture, repeat_disable, filter_linear_mipmap;
-uniform float blur_amount : hint_range(0.0, 20.0) = 8.0;
+uniform int blur_radius : hint_range(1, 16) = 8;
+uniform float blur_scale : hint_range(0.5, 3.0) = 1.0;
 uniform vec4 tint_color : source_color = vec4(0.0, 0.0, 0.0, 0.6);
 uniform float intensity : hint_range(0.0, 1.0) = 1.0;
 
+// Precomputed Gaussian kernel weights (sigma = 10, radius = 16)
+const float GAUSSIAN_16[17] = float[](
+	0.079788, 0.078698, 0.075613, 0.070734, 0.064411, 0.057106, 0.049284,
+	0.041395, 0.033851, 0.026946, 0.020884, 0.015761, 0.011577, 0.008282,
+	0.005770, 0.003912, 0.002583
+);
+
 void fragment() {
-	float blur = blur_amount * intensity;
-	vec2 ps = SCREEN_PIXEL_SIZE * blur;
+	vec2 resolution = SCREEN_PIXEL_SIZE * blur_scale;
+	vec2 uv = SCREEN_UV;
 
-	// 25-tap 2D Gaussian kernel (sigma ~= 1.5)
-	// 3 rings: cardinal + diagonal directions
+	// Center sample
+	vec4 col = texture(screen_texture, uv) * GAUSSIAN_16[0];
+	float total_weight = GAUSSIAN_16[0];
 
-	// Center
-	vec4 col = texture(screen_texture, SCREEN_UV) * 0.1031;
+	// Horizontal and vertical blur combined (separable approximation in single pass)
+	for (int i = 1; i <= blur_radius; i++) {
+		float weight = GAUSSIAN_16[i];
+		float offset = float(i);
 
-	// Ring 1 - cardinal (distance 1)
-	col += texture(screen_texture, SCREEN_UV + vec2(ps.x, 0.0)) * 0.0825;
-	col += texture(screen_texture, SCREEN_UV - vec2(ps.x, 0.0)) * 0.0825;
-	col += texture(screen_texture, SCREEN_UV + vec2(0.0, ps.y)) * 0.0825;
-	col += texture(screen_texture, SCREEN_UV - vec2(0.0, ps.y)) * 0.0825;
+		// Horizontal samples
+		col += texture(screen_texture, uv + vec2(offset * resolution.x, 0.0)) * weight;
+		col += texture(screen_texture, uv - vec2(offset * resolution.x, 0.0)) * weight;
 
-	// Ring 1 - diagonal (distance sqrt(2))
-	col += texture(screen_texture, SCREEN_UV + vec2(ps.x, ps.y)) * 0.0661;
-	col += texture(screen_texture, SCREEN_UV + vec2(-ps.x, ps.y)) * 0.0661;
-	col += texture(screen_texture, SCREEN_UV + vec2(ps.x, -ps.y)) * 0.0661;
-	col += texture(screen_texture, SCREEN_UV + vec2(-ps.x, -ps.y)) * 0.0661;
+		// Vertical samples
+		col += texture(screen_texture, uv + vec2(0.0, offset * resolution.y)) * weight;
+		col += texture(screen_texture, uv - vec2(0.0, offset * resolution.y)) * weight;
 
-	// Ring 2 - cardinal (distance 2)
-	col += texture(screen_texture, SCREEN_UV + vec2(ps.x * 2.0, 0.0)) * 0.0424;
-	col += texture(screen_texture, SCREEN_UV - vec2(ps.x * 2.0, 0.0)) * 0.0424;
-	col += texture(screen_texture, SCREEN_UV + vec2(0.0, ps.y * 2.0)) * 0.0424;
-	col += texture(screen_texture, SCREEN_UV - vec2(0.0, ps.y * 2.0)) * 0.0424;
+		total_weight += weight * 4.0;
+	}
 
-	// Ring 2 - diagonal (distance 2*sqrt(2))
-	col += texture(screen_texture, SCREEN_UV + vec2(ps.x * 2.0, ps.y * 2.0)) * 0.0174;
-	col += texture(screen_texture, SCREEN_UV + vec2(-ps.x * 2.0, ps.y * 2.0)) * 0.0174;
-	col += texture(screen_texture, SCREEN_UV + vec2(ps.x * 2.0, -ps.y * 2.0)) * 0.0174;
-	col += texture(screen_texture, SCREEN_UV + vec2(-ps.x * 2.0, -ps.y * 2.0)) * 0.0174;
+	// Diagonal samples for smoother blur (using reduced weights)
+	for (int i = 1; i <= blur_radius / 2; i++) {
+		float weight = GAUSSIAN_16[i * 2] * 0.5;
+		float offset = float(i);
 
-	// Ring 3 - cardinal (distance 3)
-	col += texture(screen_texture, SCREEN_UV + vec2(ps.x * 3.0, 0.0)) * 0.0139;
-	col += texture(screen_texture, SCREEN_UV - vec2(ps.x * 3.0, 0.0)) * 0.0139;
-	col += texture(screen_texture, SCREEN_UV + vec2(0.0, ps.y * 3.0)) * 0.0139;
-	col += texture(screen_texture, SCREEN_UV - vec2(0.0, ps.y * 3.0)) * 0.0139;
+		col += texture(screen_texture, uv + vec2(offset, offset) * resolution) * weight;
+		col += texture(screen_texture, uv + vec2(-offset, offset) * resolution) * weight;
+		col += texture(screen_texture, uv + vec2(offset, -offset) * resolution) * weight;
+		col += texture(screen_texture, uv + vec2(-offset, -offset) * resolution) * weight;
 
-	// Ring 3 - diagonal (distance 3*sqrt(2))
-	col += texture(screen_texture, SCREEN_UV + vec2(ps.x * 3.0, ps.y * 3.0)) * 0.0019;
-	col += texture(screen_texture, SCREEN_UV + vec2(-ps.x * 3.0, ps.y * 3.0)) * 0.0019;
-	col += texture(screen_texture, SCREEN_UV + vec2(ps.x * 3.0, -ps.y * 3.0)) * 0.0019;
-	col += texture(screen_texture, SCREEN_UV + vec2(-ps.x * 3.0, -ps.y * 3.0)) * 0.0019;
+		total_weight += weight * 4.0;
+	}
+
+	// Normalize
+	col /= total_weight;
 
 	// Mix blurred screen with tint, scaled by intensity
 	float tint_strength = tint_color.a * intensity;

@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvp47hn2e1y6g"]
+
+[ext_resource type="Script" path="res://Scripts/ui/components/settings_toggle.gd" id="1_settings_toggle"]
+
+[node name="SettingsToggle" type="HBoxContainer"]
+offset_right = 250.0
+offset_bottom = 32.0
+script = ExtResource("1_settings_toggle")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Setting"
+vertical_alignment = 1
+
+[node name="CheckButton" type="CheckButton" parent="."]
+layout_mode = 2

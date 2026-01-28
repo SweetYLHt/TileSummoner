@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites id="2026-01-28" name="report_6" tests="7" failures="0" skipped="0" flaky="0" time="0.000">
+	<testsuite id="0" name="test_menu_button_styler" package="Scripts/test" timestamp="2026-01-28T03:55:26" hostname="localhost" tests="7" failures="0" errors="0" skipped="0" flaky="0" time="0.345">
+		<testcase name="test_create_primary_normal_style" classname="test_menu_button_styler" time="0.056">
+		</testcase>
+		<testcase name="test_create_primary_hover_style" classname="test_menu_button_styler" time="0.010">
+		</testcase>
+		<testcase name="test_create_default_normal_style" classname="test_menu_button_styler" time="0.019">
+		</testcase>
+		<testcase name="test_create_danger_normal_style" classname="test_menu_button_styler" time="0.030">
+		</testcase>
+		<testcase name="test_create_danger_hover_style" classname="test_menu_button_styler" time="0.020">
+		</testcase>
+		<testcase name="test_create_disabled_style" classname="test_menu_button_styler" time="0.023">
+		</testcase>
+		<testcase name="test_apply_to_button" classname="test_menu_button_styler" time="0.025">
+		</testcase>
+	</testsuite>
+</testsuites>

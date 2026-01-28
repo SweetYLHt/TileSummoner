@@ -4,6 +4,7 @@
 
 [resource]
 shader = ExtResource("1_shader")
-shader_parameter/blur_amount = 8.00000038
+shader_parameter/blur_radius = 8
+shader_parameter/blur_scale = 1.0
 shader_parameter/tint_color = Color(0, 0, 0, 0.6)
 shader_parameter/intensity = 1.0

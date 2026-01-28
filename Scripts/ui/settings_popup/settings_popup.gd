@@ -10,7 +10,13 @@ class_name SettingsPopup
 ## 依赖
 ## ============================================================================
 
+## @deprecated 使用 UIThemeConstants 和组件类替代
 const _Style := preload("res://Scripts/ui/settings_popup/settings_popup_style.gd")
+
+## 新组件样式
+const _UITheme := preload("res://Scripts/ui/components/ui_theme_constants.gd")
+const _StyledButton := preload("res://Scripts/ui/components/styled_button.gd")
+const _GlassPanel := preload("res://Scripts/ui/components/glass_panel.gd")
 
 
 ## ============================================================================
@@ -202,11 +208,11 @@ func _set_blur_intensity(value: float) -> void:
 
 ## 设置控件样式
 func _setup_styles() -> void:
-	# 玻璃面板样式
+	# 玻璃面板样式 - 使用新组件
 	if _glass_panel:
-		_glass_panel.add_theme_stylebox_override("panel", _Style.create_glass_panel_style())
+		_GlassPanel.apply_to_panel(_glass_panel, _GlassPanel.PanelVariant.DEFAULT)
 
-	# 滑块样式
+	# 滑块样式 - 暂时保留旧实现
 	if _master_slider:
 		_Style.apply_slider_style(_master_slider)
 	if _music_slider:
@@ -214,15 +220,15 @@ func _setup_styles() -> void:
 	if _sfx_slider:
 		_Style.apply_slider_style(_sfx_slider)
 
-	# 按钮样式
+	# 按钮样式 - 使用新组件
 	if _save_button:
-		_Style.apply_primary_button_style(_save_button)
+		_StyledButton.apply_to_button(_save_button, _StyledButton.ButtonType.FILLED)
 	if _cancel_button:
-		_Style.apply_secondary_button_style(_cancel_button)
+		_StyledButton.apply_to_button(_cancel_button, _StyledButton.ButtonType.SECONDARY)
 	if _restore_button:
-		_Style.apply_text_button_style(_restore_button)
+		_StyledButton.apply_to_button(_restore_button, _StyledButton.ButtonType.TEXT)
 
-	# 选项按钮样式
+	# 选项按钮样式 - 暂时保留旧实现
 	if _language_option:
 		_Style.apply_option_button_style(_language_option)
 	if _resolution_option:
@@ -230,9 +236,9 @@ func _setup_styles() -> void:
 	if _display_mode_option:
 		_Style.apply_option_button_style(_display_mode_option)
 
-	# Footer 面板样式
+	# Footer 面板样式 - 使用新组件
 	if _footer_panel:
-		_Style.apply_footer_panel_style(_footer_panel)
+		_GlassPanel.apply_to_panel(_footer_panel, _GlassPanel.PanelVariant.FOOTER)
 
 
 ## 设置语言选项列表 (4个选项)

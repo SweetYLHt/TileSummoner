@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites id="2026-01-28" name="report_8" tests="81" failures="26" skipped="0" flaky="0" time="0.000">
+	<testsuite id="0" name="test_main_menu_ui" package="Scripts/test" timestamp="2026-01-28T03:57:52" hostname="localhost" tests="23" failures="0" errors="0" skipped="0" flaky="0" time="1.767">
+		<testcase name="test_background_exists" classname="test_main_menu_ui" time="0.056">
+		</testcase>
+		<testcase name="test_background_color_is_dark" classname="test_main_menu_ui" time="0.035">
+		</testcase>
+		<testcase name="test_left_panel_exists" classname="test_main_menu_ui" time="0.035">
+		</testcase>
+		<testcase name="test_title_section_exists" classname="test_main_menu_ui" time="0.039">
+		</testcase>
+		<testcase name="test_title_rich_text_exists" classname="test_main_menu_ui" time="0.030">
+		</testcase>
+		<testcase name="test_gold_underline_exists" classname="test_main_menu_ui" time="0.036">
+		</testcase>
+		<testcase name="test_subtitle_exists" classname="test_main_menu_ui" time="0.039">
+		</testcase>
+		<testcase name="test_continue_button_exists" classname="test_main_menu_ui" time="0.031">
+		</testcase>
+		<testcase name="test_continue_button_disabled" classname="test_main_menu_ui" time="0.039">
+		</testcase>
+		<testcase name="test_start_button_exists" classname="test_main_menu_ui" time="0.029">
+		</testcase>
+		<testcase name="test_save_slots_button_exists" classname="test_main_menu_ui" time="0.026">
+		</testcase>
+		<testcase name="test_save_slots_button_disabled" classname="test_main_menu_ui" time="0.030">
+		</testcase>
+		<testcase name="test_settings_button_exists" classname="test_main_menu_ui" time="0.025">
+		</testcase>
+		<testcase name="test_exit_button_exists" classname="test_main_menu_ui" time="0.030">
+		</testcase>
+		<testcase name="test_start_button_signal_connected" classname="test_main_menu_ui" time="0.115">
+		</testcase>
+		<testcase name="test_settings_button_signal_connected" classname="test_main_menu_ui" time="0.125">
+		</testcase>
+		<testcase name="test_exit_button_signal_connected" classname="test_main_menu_ui" time="0.106">
+		</testcase>
+		<testcase name="test_start_button_has_gold_left_border" classname="test_main_menu_ui" time="0.108">
+		</testcase>
+		<testcase name="test_exit_button_style_distinct" classname="test_main_menu_ui" time="0.112">
+		</testcase>
+		<testcase name="test_version_label_exists" classname="test_main_menu_ui" time="0.034">
+		</testcase>
+		<testcase name="test_has_enter_animation_method" classname="test_main_menu_ui" time="0.043">
+		</testcase>
+		<testcase name="test_has_button_hover_method" classname="test_main_menu_ui" time="0.031">
+		</testcase>
+		<testcase name="test_glow_orbs_exist" classname="test_main_menu_ui" time="0.024">
+		</testcase>
+	</testsuite>
+	<testsuite id="1" name="test_menu_button_styler" package="Scripts/test" timestamp="2026-01-28T03:57:54" hostname="localhost" tests="7" failures="0" errors="0" skipped="0" flaky="0" time="0.369">
+		<testcase name="test_create_primary_normal_style" classname="test_menu_button_styler" time="0.050">
+		</testcase>
+		<testcase name="test_create_primary_hover_style" classname="test_menu_button_styler" time="0.025">
+		</testcase>
+		<testcase name="test_create_default_normal_style" classname="test_menu_button_styler" time="0.015">
+		</testcase>
+		<testcase name="test_create_danger_normal_style" classname="test_menu_button_styler" time="0.014">
+		</testcase>
+		<testcase name="test_create_danger_hover_style" classname="test_menu_button_styler" time="0.032">
+		</testcase>
+		<testcase name="test_create_disabled_style" classname="test_menu_button_styler" time="0.032">
+		</testcase>
+		<testcase name="test_apply_to_button" classname="test_menu_button_styler" time="0.031">
+		</testcase>
+	</testsuite>
+	<testsuite id="2" name="test_terrain_config_ui" package="Scripts/test" timestamp="2026-01-28T03:57:54" hostname="localhost" tests="16" failures="0" errors="0" skipped="0" flaky="0" time="1.548">
+		<testcase name="test_edited_slots_count_initial" classname="test_terrain_config_ui" time="0.160">
+		</testcase>
+		<testcase name="test_get_edited_slots_count_method_exists" classname="test_terrain_config_ui" time="0.071">
+		</testcase>
+		<testcase name="test_get_available_tiles_count_method_exists" classname="test_terrain_config_ui" time="0.059">
+		</testcase>
+		<testcase name="test_row_labels_exist" classname="test_terrain_config_ui" time="0.061">
+		</testcase>
+		<testcase name="test_col_labels_exist" classname="test_terrain_config_ui" time="0.058">
+		</testcase>
+		<testcase name="test_reset_button_exists" classname="test_terrain_config_ui" time="0.055">
+		</testcase>
+		<testcase name="test_reset_config_method_exists" classname="test_terrain_config_ui" time="0.061">
+		</testcase>
+		<testcase name="test_edited_value_label_exists" classname="test_terrain_config_ui" time="0.059">
+		</testcase>
+		<testcase name="test_selection_value_label_exists" classname="test_terrain_config_ui" time="0.055">
+		</testcase>
+		<testcase name="test_tiles_value_label_exists" classname="test_terrain_config_ui" time="0.056">
+		</testcase>
+		<testcase name="test_start_button_exists" classname="test_terrain_config_ui" time="0.063">
+		</testcase>
+		<testcase name="test_back_button_exists" classname="test_terrain_config_ui" time="0.062">
+		</testcase>
+		<testcase name="test_grid_container_exists" classname="test_terrain_config_ui" time="0.058">
+		</testcase>
+		<testcase name="test_grid_container_columns" classname="test_terrain_config_ui" time="0.054">
+		</testcase>
+		<testcase name="test_sidebar_title_exists" classname="test_terrain_config_ui" time="0.072">
+		</testcase>
+		<testcase name="test_terrain_list_container_exists" classname="test_terrain_config_ui" time="0.062">
+		</testcase>
+	</testsuite>
+	<testsuite id="3" name="test_terrain_list_item" package="Scripts/test" timestamp="2026-01-28T03:57:56" hostname="localhost" tests="10" failures="0" errors="0" skipped="0" flaky="0" time="0.701">
+		<testcase name="test_background_color_calculation" classname="test_terrain_list_item" time="0.034">
+		</testcase>
+		<testcase name="test_icon_container_exists" classname="test_terrain_list_item" time="0.027">
+		</testcase>
+		<testcase name="test_icon_container_colored_background" classname="test_terrain_list_item" time="0.027">
+		</testcase>
+		<testcase name="test_icon_colored_with_main_color" classname="test_terrain_list_item" time="0.028">
+		</testcase>
+		<testcase name="test_count_label_format" classname="test_terrain_list_item" time="0.045">
+		</testcase>
+		<testcase name="test_count_label_format_after_update" classname="test_terrain_list_item" time="0.034">
+		</testcase>
+		<testcase name="test_hover_animation_icon_scale" classname="test_terrain_list_item" time="0.193">
+		</testcase>
+		<testcase name="test_disabled_state_gray" classname="test_terrain_list_item" time="0.036">
+		</testcase>
+		<testcase name="test_disabled_state_no_drag" classname="test_terrain_list_item" time="0.024">
+		</testcase>
+		<testcase name="test_drag_data_correct" classname="test_terrain_list_item" time="0.044">
+		</testcase>
+	</testsuite>
+	<testsuite id="4" name="test_tile_icon_system" package="Scripts/test" timestamp="2026-01-28T03:57:57" hostname="localhost" tests="9" failures="26" errors="0" skipped="0" flaky="0" time="0.595">
+		<testcase name="test_tile_has_icon_layer" classname="test_tile_icon_system" time="0.042">
+		</testcase>
+		<testcase name="test_tile_has_border_layer" classname="test_tile_icon_system" time="0.032">
+		</testcase>
+		<testcase name="test_tile_loads_correct_icon" classname="test_tile_icon_system" time="0.054">
+		</testcase>
+		<testcase name="test_all_tile_types_have_correct_icons" classname="test_tile_icon_system" time="0.033">
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:74" type="FAILURE">
+<![CDATA[
+Expecting:
+ 'res://Assets/Icons/UI/grain.svg'
+ do contains
+ 'sand.svg'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:74" type="FAILURE">
+<![CDATA[
+Expecting:
+ 'res://Assets/Icons/UI/landscape.svg'
+ do contains
+ 'rock.svg'
+]]>
+			</failure>
+		</testcase>
+		<testcase name="test_tile_border_color_matches_terrain" classname="test_tile_icon_system" time="0.047">
+		</testcase>
+		<testcase name="test_tile_icon_color_matches_terrain" classname="test_tile_icon_system" time="0.027">
+		</testcase>
+		<testcase name="test_tile_hover_color_change" classname="test_tile_icon_system" time="0.030">
+		</testcase>
+		<testcase name="test_tile_selected_color_change" classname="test_tile_icon_system" time="0.047">
+		</testcase>
+		<testcase name="test_all_terrain_colors_configured" classname="test_tile_icon_system" time="0.034">
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:186" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.140000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:187" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.070000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:188" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.210000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:186" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.030000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:188" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.040000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:186" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.060000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:187" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.180000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:188" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.460000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:186" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.030000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:187" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.060000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:188" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.080000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:186" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.020000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:188" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.040000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:186" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.120000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:187" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.350000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:188" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.250000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:186" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.060000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:187" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.130000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:188" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.170000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:187" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.140000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:188" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.250000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:186" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.680000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:187" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.190000'
+]]>
+			</failure>
+			<failure message="FAILED: res://Scripts/test/test_tile_icon_system.gd:188" type="FAILURE">
+<![CDATA[
+Expecting to be less than:
+ '0.010000' but was '0.170000'
+]]>
+			</failure>
+		</testcase>
+	</testsuite>
+	<testsuite id="5" name="test_ui_color_utils" package="Scripts/test" timestamp="2026-01-28T03:57:57" hostname="localhost" tests="16" failures="0" errors="0" skipped="0" flaky="0" time="0.937">
+		<testcase name="test_calculate_bg_color_grassland" classname="test_ui_color_utils" time="0.045">
+		</testcase>
+		<testcase name="test_calculate_bg_color_water" classname="test_ui_color_utils" time="0.033">
+		</testcase>
+		<testcase name="test_calculate_bg_color_transparency" classname="test_ui_color_utils" time="0.025">
+		</testcase>
+		<testcase name="test_calculate_bg_color_brightness" classname="test_ui_color_utils" time="0.038">
+		</testcase>
+		<testcase name="test_calculate_bg_color_custom_brightness" classname="test_ui_color_utils" time="0.023">
+		</testcase>
+		<testcase name="test_calculate_bg_color_custom_alpha" classname="test_ui_color_utils" time="0.039">
+		</testcase>
+		<testcase name="test_calculate_icon_border_color" classname="test_ui_color_utils" time="0.036">
+		</testcase>
+		<testcase name="test_calculate_icon_border_color_custom_alpha" classname="test_ui_color_utils" time="0.018">
+		</testcase>
+		<testcase name="test_calculate_glow_color_preserves_rgb" classname="test_ui_color_utils" time="0.024">
+		</testcase>
+		<testcase name="test_calculate_glow_color_default_intensity" classname="test_ui_color_utils" time="0.024">
+		</testcase>
+		<testcase name="test_calculate_glow_color_custom_intensity" classname="test_ui_color_utils" time="0.025">
+		</testcase>
+		<testcase name="test_calculate_hover_brighten_color" classname="test_ui_color_utils" time="0.024">
+		</testcase>
+		<testcase name="test_calculate_hover_brighten_color_clamps" classname="test_ui_color_utils" time="0.022">
+		</testcase>
+		<testcase name="test_calculate_hover_brighten_color_preserves_alpha" classname="test_ui_color_utils" time="0.025">
+		</testcase>
+		<testcase name="test_create_terrain_stylebox" classname="test_ui_color_utils" time="0.032">
+		</testcase>
+		<testcase name="test_create_terrain_stylebox_with_glow" classname="test_ui_color_utils" time="0.026">
+		</testcase>
+	</testsuite>
+</testsuites>

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2rkqmh7xgduo"]
+
+[ext_resource type="Script" path="res://Scripts/ui/components/glass_panel_node.gd" id="1_glass_panel"]
+
+[node name="GlassPanel" type="PanelContainer"]
+custom_minimum_size = Vector2(200, 100)
+offset_right = 200.0
+offset_bottom = 100.0
+script = ExtResource("1_glass_panel")

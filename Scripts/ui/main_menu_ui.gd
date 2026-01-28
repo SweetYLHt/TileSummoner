@@ -7,6 +7,17 @@ class_name MainMenuUI
 
 
 ## ============================================================================
+## 依赖
+## ============================================================================
+
+## @deprecated 使用 StyledButton 替代
+# const _MenuButtonStyler := preload("res://Scripts/ui/main_menu/menu_button_styler.gd")
+
+## 新组件样式
+const _StyledButton := preload("res://Scripts/ui/components/styled_button.gd")
+
+
+## ============================================================================
 ## 常量
 ## ============================================================================
 
@@ -91,16 +102,17 @@ func _connect_signals() -> void:
 
 ## 为所有按钮应用对应样式
 func _setup_button_styles() -> void:
+	# 使用新的 StyledButton 组件
 	if _continue_button:
-		MenuButtonStyler.apply_to_button(_continue_button, MenuButtonStyler.ButtonType.PRIMARY)
+		_StyledButton.apply_to_button(_continue_button, _StyledButton.ButtonType.PRIMARY)
 	if _start_button:
-		MenuButtonStyler.apply_to_button(_start_button, MenuButtonStyler.ButtonType.PRIMARY)
+		_StyledButton.apply_to_button(_start_button, _StyledButton.ButtonType.PRIMARY)
 	if _save_slots_button:
-		MenuButtonStyler.apply_to_button(_save_slots_button, MenuButtonStyler.ButtonType.DEFAULT)
+		_StyledButton.apply_to_button(_save_slots_button, _StyledButton.ButtonType.DEFAULT)
 	if _settings_button:
-		MenuButtonStyler.apply_to_button(_settings_button, MenuButtonStyler.ButtonType.DEFAULT)
+		_StyledButton.apply_to_button(_settings_button, _StyledButton.ButtonType.DEFAULT)
 	if _exit_button:
-		MenuButtonStyler.apply_to_button(_exit_button, MenuButtonStyler.ButtonType.DANGER)
+		_StyledButton.apply_to_button(_exit_button, _StyledButton.ButtonType.DANGER)
 
 
 ## ============================================================================

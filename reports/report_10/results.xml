@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites id="2026-01-28" name="report_10" tests="20" failures="0" skipped="0" flaky="0" time="0.000">
+	<testsuite id="0" name="test_settings_popup_style" package="Scripts/test" timestamp="2026-01-28T07:29:20" hostname="localhost" tests="20" failures="0" errors="0" skipped="0" flaky="0" time="1.263">
+		<testcase name="test_create_glass_panel_style_returns_stylebox" classname="test_settings_popup_style" time="0.060">
+		</testcase>
+		<testcase name="test_glass_panel_bg_alpha" classname="test_settings_popup_style" time="0.031">
+		</testcase>
+		<testcase name="test_glass_panel_corner_radius" classname="test_settings_popup_style" time="0.027">
+		</testcase>
+		<testcase name="test_create_slider_grabber_style_returns_stylebox" classname="test_settings_popup_style" time="0.039">
+		</testcase>
+		<testcase name="test_slider_grabber_gold_color" classname="test_settings_popup_style" time="0.036">
+		</testcase>
+		<testcase name="test_create_slider_track_style_returns_stylebox" classname="test_settings_popup_style" time="0.029">
+		</testcase>
+		<testcase name="test_create_slider_fill_style_returns_stylebox" classname="test_settings_popup_style" time="0.033">
+		</testcase>
+		<testcase name="test_slider_grabber_is_rectangular" classname="test_settings_popup_style" time="0.112">
+		</testcase>
+		<testcase name="test_slider_track_no_rounded" classname="test_settings_popup_style" time="0.021">
+		</testcase>
+		<testcase name="test_create_primary_button_style_returns_stylebox" classname="test_settings_popup_style" time="0.016">
+		</testcase>
+		<testcase name="test_primary_button_gold_background" classname="test_settings_popup_style" time="0.016">
+		</testcase>
+		<testcase name="test_create_secondary_button_style_returns_stylebox" classname="test_settings_popup_style" time="0.013">
+		</testcase>
+		<testcase name="test_secondary_button_has_border" classname="test_settings_popup_style" time="0.041">
+		</testcase>
+		<testcase name="test_create_toggle_on_style_returns_stylebox" classname="test_settings_popup_style" time="0.034">
+		</testcase>
+		<testcase name="test_create_toggle_off_style_returns_stylebox" classname="test_settings_popup_style" time="0.049">
+		</testcase>
+		<testcase name="test_create_option_button_style_returns_stylebox" classname="test_settings_popup_style" time="0.038">
+		</testcase>
+		<testcase name="test_get_separator_color_returns_color" classname="test_settings_popup_style" time="0.042">
+		</testcase>
+		<testcase name="test_create_footer_panel_style_returns_stylebox" classname="test_settings_popup_style" time="0.029">
+		</testcase>
+		<testcase name="test_footer_panel_bg_transparency" classname="test_settings_popup_style" time="0.043">
+		</testcase>
+		<testcase name="test_text_button_no_border" classname="test_settings_popup_style" time="0.037">
+		</testcase>
+	</testsuite>
+</testsuites>

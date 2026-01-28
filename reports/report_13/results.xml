@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<testsuites id="2026-01-28" name="report_13" tests="24" failures="0" skipped="0" flaky="0" time="0.000">
+	<testsuite id="0" name="test_settings_popup_style" package="Scripts/test" timestamp="2026-01-28T09:44:54" hostname="localhost" tests="24" failures="0" errors="0" skipped="0" flaky="0" time="1.123">
+		<testcase name="test_create_glass_panel_style_returns_stylebox" classname="test_settings_popup_style" time="0.023">
+		</testcase>
+		<testcase name="test_glass_panel_bg_alpha" classname="test_settings_popup_style" time="0.011">
+		</testcase>
+		<testcase name="test_glass_panel_corner_radius" classname="test_settings_popup_style" time="0.017">
+		</testcase>
+		<testcase name="test_create_slider_grabber_texture_returns_image_texture" classname="test_settings_popup_style" time="0.025">
+		</testcase>
+		<testcase name="test_slider_grabber_texture_size" classname="test_settings_popup_style" time="0.026">
+		</testcase>
+		<testcase name="test_create_slider_track_style_returns_stylebox" classname="test_settings_popup_style" time="0.025">
+		</testcase>
+		<testcase name="test_create_slider_fill_style_returns_stylebox" classname="test_settings_popup_style" time="0.025">
+		</testcase>
+		<testcase name="test_slider_grabber_texture_is_vertical" classname="test_settings_popup_style" time="0.024">
+		</testcase>
+		<testcase name="test_slider_track_no_rounded" classname="test_settings_popup_style" time="0.026">
+		</testcase>
+		<testcase name="test_slider_track_has_expand_margin" classname="test_settings_popup_style" time="0.010">
+		</testcase>
+		<testcase name="test_slider_fill_has_expand_margin" classname="test_settings_popup_style" time="0.010">
+		</testcase>
+		<testcase name="test_apply_slider_style_sets_grabber_icon" classname="test_settings_popup_style" time="0.020">
+		</testcase>
+		<testcase name="test_apply_slider_style_sets_grabber_highlight_icon" classname="test_settings_popup_style" time="0.013">
+		</testcase>
+		<testcase name="test_create_primary_button_style_returns_stylebox" classname="test_settings_popup_style" time="0.019">
+		</testcase>
+		<testcase name="test_primary_button_gold_background" classname="test_settings_popup_style" time="0.013">
+		</testcase>
+		<testcase name="test_create_secondary_button_style_returns_stylebox" classname="test_settings_popup_style" time="0.034">
+		</testcase>
+		<testcase name="test_secondary_button_has_border" classname="test_settings_popup_style" time="0.021">
+		</testcase>
+		<testcase name="test_create_toggle_on_style_returns_stylebox" classname="test_settings_popup_style" time="0.022">
+		</testcase>
+		<testcase name="test_create_toggle_off_style_returns_stylebox" classname="test_settings_popup_style" time="0.014">
+		</testcase>
+		<testcase name="test_create_option_button_style_returns_stylebox" classname="test_settings_popup_style" time="0.021">
+		</testcase>
+		<testcase name="test_get_separator_color_returns_color" classname="test_settings_popup_style" time="0.040">
+		</testcase>
+		<testcase name="test_create_footer_panel_style_returns_stylebox" classname="test_settings_popup_style" time="0.021">
+		</testcase>
+		<testcase name="test_footer_panel_bg_transparency" classname="test_settings_popup_style" time="0.023">
+		</testcase>
+		<testcase name="test_text_button_no_border" classname="test_settings_popup_style" time="0.019">
+		</testcase>
+	</testsuite>
+</testsuites>

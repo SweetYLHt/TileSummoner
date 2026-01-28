@@ -1,5 +1,8 @@
 ## 主菜单按钮样式工厂
 ##
+## @deprecated 请使用 StyledButton 组件替代
+## 此类保留用于向后兼容，新代码应使用 res://Scripts/ui/components/styled_button.gd
+##
 ## 为主菜单按钮创建赛博朋克风格的 StyleBoxFlat 样式
 ## 支持 PRIMARY / DEFAULT / DANGER 三种类型
 extends RefCounted

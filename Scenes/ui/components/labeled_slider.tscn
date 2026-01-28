@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://dkwm8v6hxr1ft"]
+
+[ext_resource type="Script" path="res://Scripts/ui/components/labeled_slider.gd" id="1_labeled_slider"]
+
+[node name="LabeledSlider" type="HBoxContainer"]
+offset_right = 400.0
+offset_bottom = 32.0
+script = ExtResource("1_labeled_slider")
+
+[node name="Label" type="Label" parent="."]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+text = "Label"
+vertical_alignment = 1
+
+[node name="Slider" type="HSlider" parent="."]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+min_value = 0.0
+max_value = 1.0
+step = 0.01
+value = 0.5
+
+[node name="PercentageLabel" type="Label" parent="."]
+custom_minimum_size = Vector2(50, 0)
+layout_mode = 2
+text = "50%"
+horizontal_alignment = 2
+vertical_alignment = 1

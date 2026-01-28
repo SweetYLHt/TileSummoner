@@ -2,6 +2,16 @@
 extends Control
 class_name TerrainConfigUI
 
+
+## ============================================================================
+## 依赖
+## ============================================================================
+
+## 新组件样式
+const _StyledButton := preload("res://Scripts/ui/components/styled_button.gd")
+const _UITheme := preload("res://Scripts/ui/components/ui_theme_constants.gd")
+
+
 ## 信号：配置完成
 signal config_completed(config_data: Dictionary)
 
@@ -251,21 +261,25 @@ func _preload_icons() -> void:
 
 ## 设置开始按钮样式（金色主按钮）
 func _setup_start_button_style() -> void:
+	# 使用新组件创建金色填充按钮（需要特殊处理 - 与标准 PRIMARY 不同）
 	var style := StyleBoxFlat.new()
-	style.bg_color = Color(0.87, 0.7, 0.16, 1.0)  # 金色
+	style.bg_color = _UITheme.GOLD  # 金色填充
 	style.set_border_width_all(0)
 	style.set_corner_radius_all(4)
-	style.shadow_color = Color(0.87, 0.7, 0.16, 0.4)
+	style.shadow_color = Color(_UITheme.GOLD.r, _UITheme.GOLD.g, _UITheme.GOLD.b, 0.4)
 	style.shadow_size = 6
 	_start_button.add_theme_stylebox_override("normal", style)
 
 	var hover_style := style.duplicate() as StyleBoxFlat
-	hover_style.bg_color = Color(0.81, 0.65, 0.15, 1.0)
+	hover_style.bg_color = _UITheme.GOLD_DARK
 	_start_button.add_theme_stylebox_override("hover", hover_style)
 
 	var pressed_style := style.duplicate() as StyleBoxFlat
-	pressed_style.bg_color = Color(0.7, 0.55, 0.1, 1.0)
+	pressed_style.bg_color = _UITheme.GOLD_DARK.darkened(0.1)
 	_start_button.add_theme_stylebox_override("pressed", pressed_style)
+
+	# 使用 StyledButton 样式设置返回按钮
+	_StyledButton.apply_to_button(_back_button, _StyledButton.ButtonType.SECONDARY)
 
 
 ## 设置网格面板样式（外发光）
@@ -273,9 +287,9 @@ func _setup_grid_panel_style() -> void:
 	var style := StyleBoxFlat.new()
 	style.bg_color = Color(0.05, 0.06, 0.08, 0.8)
 	style.set_border_width_all(1)
-	style.border_color = Color(0.3, 0.35, 0.4, 0.5)
+	style.border_color = _UITheme.BORDER_SUBTLE
 	style.set_corner_radius_all(8)
-	style.shadow_color = Color(0.87, 0.7, 0.16, 0.1)
+	style.shadow_color = Color(_UITheme.GOLD.r, _UITheme.GOLD.g, _UITheme.GOLD.b, 0.1)
 	style.shadow_size = 12
 	_grid_panel.add_theme_stylebox_override("panel", style)
 
