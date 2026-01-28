@@ -1,0 +1,9 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://cew4ovd1y3sjq"]
+
+[ext_resource type="Shader" uid="uid://b7yem83s82e08" path="res://Assets/Shaders/backdrop_blur.gdshader" id="1_shader"]
+
+[resource]
+shader = ExtResource("1_shader")
+shader_parameter/blur_amount = 8.00000038
+shader_parameter/tint_color = Color(0, 0, 0, 0.6)
+shader_parameter/intensity = 1.0

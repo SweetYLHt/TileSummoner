@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://y44tkdo58doj"]
+[gd_scene load_steps=3 format=3 uid="uid://y44tkdo58doj"]
 
 [ext_resource type="Script" uid="uid://d1e7nnxy176o1" path="res://Scripts/ui/main_menu_ui.gd" id="1_menu"]
+[ext_resource type="Script" path="res://Scripts/ui/main_menu/menu_glow_orbs.gd" id="2_orbs"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -18,86 +19,150 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.1, 0.12, 0.15, 1)
+color = Color(0.02, 0.024, 0.031, 1)
 
-[node name="TitleLabel" type="Label" parent="."]
+[node name="GradientOverlay" type="ColorRect" parent="."]
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -300.0
-offset_top = 150.0
-offset_right = 300.0
-offset_bottom = 230.0
-grow_horizontal = 2
-theme_override_font_sizes/font_size = 64
-text = "Tile Summoner"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="SubtitleLabel" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -200.0
-offset_top = 240.0
-offset_right = 200.0
-offset_bottom = 280.0
-grow_horizontal = 2
-theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
-theme_override_font_sizes/font_size = 24
-text = "地块召唤师"
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -100.0
-offset_top = 50.0
-offset_right = 100.0
-offset_bottom = 200.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 20
+color = Color(0, 0, 0, 0)
 
-[node name="StartButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(200, 50)
+[node name="GlowOrbsContainer" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_orbs")
+
+[node name="HSplitLayout" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 48.0
+offset_right = -32.0
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftPanel" type="VBoxContainer" parent="HSplitLayout"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "开始游戏"
+size_flags_horizontal = 3
 
-[node name="SettingsButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(200, 50)
+[node name="TopSpacer" type="Control" parent="HSplitLayout/LeftPanel"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "设置"
+size_flags_vertical = 3
 
-[node name="ExitButton" type="Button" parent="VBoxContainer"]
-custom_minimum_size = Vector2(200, 50)
+[node name="TitleSection" type="VBoxContainer" parent="HSplitLayout/LeftPanel"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 20
-text = "退出"
+theme_override_constants/separation = 8
 
-[node name="VersionLabel" type="Label" parent="."]
+[node name="TitleRichText" type="RichTextLabel" parent="HSplitLayout/LeftPanel/TitleSection"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 140)
+layout_mode = 2
+bbcode_enabled = true
+text = "[font_size=72][color=#f5f5f7]TILE[/color][/font_size]
+[font_size=48][color=#dfb22a][outline_size=3][outline_color=#dfb22a66]SUMMONER[/outline_color][/outline_size][/color][/font_size]"
+fit_content = true
+scroll_active = false
+
+[node name="GoldUnderline" type="ColorRect" parent="HSplitLayout/LeftPanel/TitleSection"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 4)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.87, 0.7, 0.16, 1)
+
+[node name="SubtitleLabel" type="Label" parent="HSplitLayout/LeftPanel/TitleSection"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47, 0.44, 0.42, 1)
+theme_override_font_sizes/font_size = 14
+text = "STRATEGIC TERRAIN WARFARE SIMULATOR"
+uppercase = true
+
+[node name="ButtonSpacer" type="Control" parent="HSplitLayout/LeftPanel"]
+custom_minimum_size = Vector2(0, 48)
+layout_mode = 2
+
+[node name="ButtonContainer" type="VBoxContainer" parent="HSplitLayout/LeftPanel"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="ContinueButton" type="Button" parent="HSplitLayout/LeftPanel/ButtonContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+disabled = true
+text = "CONTINUE"
+
+[node name="StartButton" type="Button" parent="HSplitLayout/LeftPanel/ButtonContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "START NEW GAME"
+
+[node name="SaveSlotsButton" type="Button" parent="HSplitLayout/LeftPanel/ButtonContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+disabled = true
+text = "SAVE SLOTS"
+
+[node name="SettingsButton" type="Button" parent="HSplitLayout/LeftPanel/ButtonContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "SETTINGS"
+
+[node name="ExitSpacer" type="Control" parent="HSplitLayout/LeftPanel/ButtonContainer"]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+
+[node name="ExitButton" type="Button" parent="HSplitLayout/LeftPanel/ButtonContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "QUIT TO DESKTOP"
+
+[node name="BottomSpacer" type="Control" parent="HSplitLayout/LeftPanel"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="RightSpacer" type="Control" parent="HSplitLayout"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="Footer" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -120.0
-offset_top = -40.0
-offset_right = -20.0
-offset_bottom = -10.0
+offset_left = -200.0
+offset_top = -50.0
+offset_right = -32.0
+offset_bottom = -24.0
 grow_horizontal = 0
 grow_vertical = 0
-theme_override_colors/font_color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="FooterContent" type="HBoxContainer" parent="Footer"]
+layout_mode = 2
+alignment = 2
+
+[node name="VersionLabel" type="Label" parent="Footer/FooterContent"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.47, 0.44, 0.42, 1)
+theme_override_font_sizes/font_size = 13
 text = "v0.1.0"
 horizontal_alignment = 2
-vertical_alignment = 2

@@ -60,3 +60,13 @@ func get_total_count() -> int:
 	for count in _inventory.values():
 		total += count
 	return total
+
+
+## 获取库存快照
+func get_snapshot() -> Dictionary:
+	return _inventory.duplicate(true)
+
+
+## 从快照恢复库存
+func restore_snapshot(snapshot: Dictionary) -> void:
+	_inventory = snapshot.duplicate(true)

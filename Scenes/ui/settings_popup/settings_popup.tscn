@@ -1,0 +1,382 @@
+[gd_scene load_steps=3 format=3 uid="uid://big1acoo7ghah"]
+
+[ext_resource type="Script" uid="uid://bg7pej4pspdi" path="res://Scripts/ui/settings_popup/settings_popup.gd" id="1_popup"]
+[ext_resource type="Material" uid="uid://cew4ovd1y3sjq" path="res://Resources/ui/backdrop_blur_material.tres" id="2_blur"]
+
+[node name="SettingsPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_popup")
+
+[node name="DimOverlay" type="ColorRect" parent="."]
+material = ExtResource("2_blur")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PopupContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="GlassPanel" type="Panel" parent="PopupContainer"]
+custom_minimum_size = Vector2(896, 700)
+layout_mode = 2
+
+[node name="LeftBorderAccent" type="ColorRect" parent="PopupContainer/GlassPanel"]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 6.0
+grow_vertical = 2
+color = Color(0.87, 0.7, 0.16, 1)
+
+[node name="ContentMargin" type="MarginContainer" parent="PopupContainer/GlassPanel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 32
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 32
+theme_override_constants/margin_bottom = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="HeaderSection" type="HBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/HeaderSection"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.96, 0.96, 0.97, 1)
+theme_override_font_sizes/font_size = 42
+text = "SETTINGS"
+
+[node name="DotLabel" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/HeaderSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.7, 0.16, 1)
+theme_override_font_sizes/font_size = 42
+text = "."
+
+[node name="Spacer" type="Control" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/HeaderSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="GoldUnderline" type="ColorRect" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer"]
+custom_minimum_size = Vector2(80, 4)
+layout_mode = 2
+size_flags_horizontal = 0
+color = Color(0.87, 0.7, 0.16, 1)
+
+[node name="HeaderSpacer" type="Control" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer"]
+custom_minimum_size = Vector2(0, 4)
+layout_mode = 2
+
+[node name="ContentGrid" type="HBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 64
+
+[node name="LeftColumn" type="VBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+
+[node name="AudioSection" type="VBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="AudioTitle" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.7, 0.16, 1)
+theme_override_font_sizes/font_size = 18
+text = "AUDIO"
+
+[node name="MasterVolumeRow" type="VBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="LabelRow" type="HBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection/MasterVolumeRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection/MasterVolumeRow/LabelRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.66, 0.64, 0.6, 1)
+theme_override_font_sizes/font_size = 12
+text = "MASTER"
+
+[node name="MasterValueLabel" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection/MasterVolumeRow/LabelRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.66, 0.64, 0.6, 1)
+theme_override_font_sizes/font_size = 12
+text = "80%"
+
+[node name="MasterVolumeSlider" type="HSlider" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection/MasterVolumeRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.8
+
+[node name="MusicVolumeRow" type="VBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="LabelRow" type="HBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection/MusicVolumeRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection/MusicVolumeRow/LabelRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.66, 0.64, 0.6, 1)
+theme_override_font_sizes/font_size = 12
+text = "MUSIC"
+
+[node name="MusicValueLabel" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection/MusicVolumeRow/LabelRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.66, 0.64, 0.6, 1)
+theme_override_font_sizes/font_size = 12
+text = "60%"
+
+[node name="MusicVolumeSlider" type="HSlider" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection/MusicVolumeRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.6
+
+[node name="SfxVolumeRow" type="VBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="LabelRow" type="HBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection/SfxVolumeRow"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection/SfxVolumeRow/LabelRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.66, 0.64, 0.6, 1)
+theme_override_font_sizes/font_size = 12
+text = "SFX"
+
+[node name="SfxValueLabel" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection/SfxVolumeRow/LabelRow"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_color = Color(0.66, 0.64, 0.6, 1)
+theme_override_font_sizes/font_size = 12
+text = "70%"
+
+[node name="SfxVolumeSlider" type="HSlider" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/AudioSection/SfxVolumeRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 1.0
+step = 0.01
+value = 0.7
+
+[node name="DisplaySection" type="VBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="DisplayTitle" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/DisplaySection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.7, 0.16, 1)
+theme_override_font_sizes/font_size = 18
+text = "VIDEO"
+
+[node name="ResolutionRow" type="HBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/DisplaySection"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/DisplaySection/ResolutionRow"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Resolution"
+
+[node name="ResolutionOption" type="OptionButton" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/DisplaySection/ResolutionRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DisplayModeRow" type="HBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/DisplaySection"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/DisplaySection/DisplayModeRow"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Display Mode"
+
+[node name="DisplayModeOption" type="OptionButton" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/LeftColumn/DisplaySection/DisplayModeRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RightColumn" type="VBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+
+[node name="GameplaySection" type="VBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="GameplayTitle" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn/GameplaySection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.7, 0.16, 1)
+theme_override_font_sizes/font_size = 18
+text = "GAMEPLAY"
+
+[node name="HealthBarsRow" type="HBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn/GameplaySection"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn/GameplaySection/HealthBarsRow"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Show Health Bars"
+
+[node name="HealthBarsToggle" type="CheckButton" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn/GameplaySection/HealthBarsRow"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+
+[node name="CameraShakeRow" type="HBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn/GameplaySection"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn/GameplaySection/CameraShakeRow"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Camera Shake"
+
+[node name="CameraShakeToggle" type="CheckButton" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn/GameplaySection/CameraShakeRow"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+
+[node name="AutoSaveRow" type="HBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn/GameplaySection"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn/GameplaySection/AutoSaveRow"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Auto-Save"
+
+[node name="AutoSaveToggle" type="CheckButton" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn/GameplaySection/AutoSaveRow"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="LanguageSection" type="VBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="LanguageTitle" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn/LanguageSection"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.87, 0.7, 0.16, 1)
+theme_override_font_sizes/font_size = 18
+text = "LANGUAGE"
+
+[node name="LanguageRow" type="HBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn/LanguageSection"]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn/LanguageSection/LanguageRow"]
+custom_minimum_size = Vector2(120, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.7, 1)
+text = "Language"
+
+[node name="LanguageOption" type="OptionButton" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/ContentGrid/RightColumn/LanguageSection/LanguageRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="FooterSpacer" type="Control" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="FooterPanel" type="PanelContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer"]
+layout_mode = 2
+
+[node name="FooterMargin" type="MarginContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/FooterPanel"]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 12
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 12
+
+[node name="ButtonRow" type="HBoxContainer" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/FooterPanel/FooterMargin"]
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 2
+
+[node name="RestoreDefaultsButton" type="Button" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/FooterPanel/FooterMargin/ButtonRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 44)
+layout_mode = 2
+text = "RESTORE DEFAULTS"
+
+[node name="Spacer" type="Control" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/FooterPanel/FooterMargin/ButtonRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="CancelButton" type="Button" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/FooterPanel/FooterMargin/ButtonRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(100, 44)
+layout_mode = 2
+text = "CANCEL"
+
+[node name="SaveButton" type="Button" parent="PopupContainer/GlassPanel/ContentMargin/VBoxContainer/FooterPanel/FooterMargin/ButtonRow"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 44)
+layout_mode = 2
+text = "SAVE CHANGES"
+
+[node name="CloseButton" type="Button" parent="PopupContainer/GlassPanel"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -44.0
+offset_top = 12.0
+offset_right = -12.0
+offset_bottom = 44.0
+grow_horizontal = 0
+text = "X"
+flat = true

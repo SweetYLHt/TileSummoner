@@ -65,6 +65,12 @@ var _drag_data: Dictionary = {}
 ## 图标纹理缓存
 var _icon_cache: Dictionary = {}
 
+## 初始网格快照（用于 reset 恢复）
+var _initial_grid_snapshot: Array = []
+
+## 初始库存快照（用于 reset 恢复）
+var _initial_inventory_snapshot: Dictionary = {}
+
 ## TileInventory 引用（AutoLoad 单例）
 @onready var _tile_inventory: TileInventory = get_node("/root/tileInventory")
 
@@ -117,6 +123,9 @@ func _ready() -> void:
 	# 更新状态显示
 	_update_status_display()
 
+	# 保存初始快照（用于 reset 恢复）
+	_save_initial_snapshot()
+
 
 func _input(event: InputEvent) -> void:
 	# 处理 Escape 键返回
@@ -137,6 +146,13 @@ func _init_grid_config() -> void:
 		for col in grid_columns:
 			row_array.append(-1) # -1 表示空
 		_grid_config.append(row_array)
+
+
+## 保存初始快照（用于 reset 恢复到刚进入页面时的状态）
+func _save_initial_snapshot() -> void:
+	_initial_grid_snapshot = _grid_config.duplicate(true)
+	if _tile_inventory:
+		_initial_inventory_snapshot = _tile_inventory.get_snapshot()
 
 
 ## 连接信号
@@ -284,14 +300,21 @@ func get_current_config() -> Dictionary:
 	}
 
 
-## 重置配置
+## 重置配置（恢复到刚进入页面时的初始状态）
 func reset_config() -> void:
-	_init_grid_config()
+	# 恢复网格配置
+	if _initial_grid_snapshot.size() > 0:
+		_grid_config = _initial_grid_snapshot.duplicate(true)
+	else:
+		_init_grid_config()
 	_update_all_slots()
 
 	# 恢复库存
 	if _tile_inventory:
-		_tile_inventory.initialize_default_inventory()
+		if _initial_inventory_snapshot.size() > 0:
+			_tile_inventory.restore_snapshot(_initial_inventory_snapshot)
+		else:
+			_tile_inventory.initialize_default_inventory()
 		_sync_inventory_to_ui()
 
 	_update_status_display()

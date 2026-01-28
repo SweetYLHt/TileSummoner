@@ -317,6 +317,8 @@ func _update_icon() -> void:
 			_icon.modulate = _tile_data.main_color
 		if _dashed_border:
 			_dashed_border.visible = false
+		if _add_icon:
+			_add_icon.visible = false
 	_update_visual_state()
 
 
